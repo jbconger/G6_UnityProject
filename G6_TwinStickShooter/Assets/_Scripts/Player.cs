@@ -5,8 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+	// gamepad input object
     PlayerControls controls;
 
+	// move speed of player
+	public float moveSpeed = 5f;
+
+	// vectors for moving and rotating player
 	Vector2 move;
 	Vector2 rotate;
 
@@ -32,10 +37,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
+		Vector2 m = new Vector2(move.x * moveSpeed, move.y * moveSpeed) * Time.deltaTime;
 		transform.Translate(m, Space.World);
 
-		Vector2 r = new Vector2(rotate.y, rotate.x) * 100f * Time.deltaTime;
+		Vector2 r = new Vector2(0, rotate.x) * 100f * Time.deltaTime;
 		transform.Rotate(r, Space.World);
     }
 
@@ -45,7 +50,7 @@ public class Player : MonoBehaviour
 
     }
 
-    // Increases the size of the player object
+    // Increases the size of the player object - just for fun, will be removed or replaced
     void Grow()
     {
         transform.localScale *= 1.1f;
