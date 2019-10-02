@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/PlayerControls.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/_Scripts/Controls/PlayerControls.inputactions'
 
 using System.Collections;
 using System.Collections.Generic;
@@ -40,6 +40,14 @@ public class PlayerControls : IInputActionCollection
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Dodge Roll"",
+                    ""type"": ""Button"",
+                    ""id"": ""0a9f35d4-771a-4a0c-b3d8-d5af11f64248"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -75,6 +83,17 @@ public class PlayerControls : IInputActionCollection
                     ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43efffe3-d2bd-4081-86c2-228a0384bdd0"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dodge Roll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -86,6 +105,7 @@ public class PlayerControls : IInputActionCollection
         m_Gameplay_Grow = m_Gameplay.FindAction("Grow", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
+        m_Gameplay_DodgeRoll = m_Gameplay.FindAction("Dodge Roll", throwIfNotFound: true);
     }
 
     ~PlayerControls()
@@ -138,6 +158,7 @@ public class PlayerControls : IInputActionCollection
     private readonly InputAction m_Gameplay_Grow;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Rotate;
+    private readonly InputAction m_Gameplay_DodgeRoll;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
@@ -145,6 +166,7 @@ public class PlayerControls : IInputActionCollection
         public InputAction @Grow => m_Wrapper.m_Gameplay_Grow;
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
+        public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -163,6 +185,9 @@ public class PlayerControls : IInputActionCollection
                 Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
                 Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
+                DodgeRoll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
+                DodgeRoll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
+                DodgeRoll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -176,6 +201,9 @@ public class PlayerControls : IInputActionCollection
                 Rotate.started += instance.OnRotate;
                 Rotate.performed += instance.OnRotate;
                 Rotate.canceled += instance.OnRotate;
+                DodgeRoll.started += instance.OnDodgeRoll;
+                DodgeRoll.performed += instance.OnDodgeRoll;
+                DodgeRoll.canceled += instance.OnDodgeRoll;
             }
         }
     }
@@ -185,5 +213,6 @@ public class PlayerControls : IInputActionCollection
         void OnGrow(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+        void OnDodgeRoll(InputAction.CallbackContext context);
     }
 }

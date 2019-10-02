@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 		Vector2 m = new Vector2(move.x * moveSpeed, move.y * moveSpeed) * Time.deltaTime;
 		transform.Translate(m, Space.World);
 
-		Vector2 r = new Vector2(0, rotate.x) * 100f * Time.deltaTime;
+		Vector2 r = new Vector2(rotate.y, 0) * 100f * Time.deltaTime;
 		transform.Rotate(r, Space.World);
     }
 
