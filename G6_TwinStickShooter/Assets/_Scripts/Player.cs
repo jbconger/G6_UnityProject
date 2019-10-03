@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 		controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
 
 		controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+		// on release, fire arrow
 		controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
 	}
 
