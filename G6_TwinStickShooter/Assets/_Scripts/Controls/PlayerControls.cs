@@ -18,7 +18,7 @@ public class PlayerControls : IInputActionCollection
             ""id"": ""d3f7c1da-3f33-41d8-a77b-a4c3a544e3ad"",
             ""actions"": [
                 {
-                    ""name"": ""Grow"",
+                    ""name"": ""Fire"",
                     ""type"": ""Button"",
                     ""id"": ""a87dc691-ad20-40bd-94ba-e079f7e364f5"",
                     ""expectedControlType"": """",
@@ -54,11 +54,11 @@ public class PlayerControls : IInputActionCollection
                 {
                     ""name"": """",
                     ""id"": ""c7420c1a-5dee-4e5a-924f-bf7722669410"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Grow"",
+                    ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -102,7 +102,7 @@ public class PlayerControls : IInputActionCollection
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Grow = m_Gameplay.FindAction("Grow", throwIfNotFound: true);
+        m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
         m_Gameplay_DodgeRoll = m_Gameplay.FindAction("Dodge Roll", throwIfNotFound: true);
@@ -155,7 +155,7 @@ public class PlayerControls : IInputActionCollection
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Grow;
+    private readonly InputAction m_Gameplay_Fire;
     private readonly InputAction m_Gameplay_Move;
     private readonly InputAction m_Gameplay_Rotate;
     private readonly InputAction m_Gameplay_DodgeRoll;
@@ -163,7 +163,7 @@ public class PlayerControls : IInputActionCollection
     {
         private PlayerControls m_Wrapper;
         public GameplayActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Grow => m_Wrapper.m_Gameplay_Grow;
+        public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
         public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
@@ -176,9 +176,9 @@ public class PlayerControls : IInputActionCollection
         {
             if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                Grow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGrow;
-                Grow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGrow;
-                Grow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnGrow;
+                Fire.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                Fire.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
+                Fire.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
@@ -192,9 +192,9 @@ public class PlayerControls : IInputActionCollection
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
-                Grow.started += instance.OnGrow;
-                Grow.performed += instance.OnGrow;
-                Grow.canceled += instance.OnGrow;
+                Fire.started += instance.OnFire;
+                Fire.performed += instance.OnFire;
+                Fire.canceled += instance.OnFire;
                 Move.started += instance.OnMove;
                 Move.performed += instance.OnMove;
                 Move.canceled += instance.OnMove;
@@ -210,7 +210,7 @@ public class PlayerControls : IInputActionCollection
     public GameplayActions @Gameplay => new GameplayActions(this);
     public interface IGameplayActions
     {
-        void OnGrow(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
         void OnDodgeRoll(InputAction.CallbackContext context);

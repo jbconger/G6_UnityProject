@@ -6,7 +6,7 @@
             "id": "d3f7c1da-3f33-41d8-a77b-a4c3a544e3ad",
             "actions": [
                 {
-                    "name": "Grow",
+                    "name": "Fire",
                     "type": "Button",
                     "id": "a87dc691-ad20-40bd-94ba-e079f7e364f5",
                     "expectedControlType": "",
@@ -42,11 +42,11 @@
                 {
                     "name": "",
                     "id": "c7420c1a-5dee-4e5a-924f-bf7722669410",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Grow",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

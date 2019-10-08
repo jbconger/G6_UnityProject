@@ -12,21 +12,27 @@ public class Player : MonoBehaviour
 	public float moveSpeed = 5f;
 
 	// vectors for moving and rotating player
-	Vector2 move;
-	Vector2 rotate;
+	Vector2 moveStick;
+	Vector2 rotateStick;
 
-    void Awake() 
-    {
-        controls = new PlayerControls();
+	// arrow and fire point
+	public GameObject arrowPrefab;
+	public Transform firePoint;
 
-        controls.Gameplay.Grow.performed += ctx => Grow();
+	// arrow speed
+	public float arrowSpeed = 20f;
+	bool arrowDrawn;
 
-		controls.Gameplay.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
-		controls.Gameplay.Move.canceled += ctx => move = Vector2.zero;
+	void Awake()
+	{
+		controls = new PlayerControls();
 
-		controls.Gameplay.Rotate.performed += ctx => rotate = ctx.ReadValue<Vector2>();
+		controls.Gameplay.Move.performed += ctx => moveStick = ctx.ReadValue<Vector2>();
+		controls.Gameplay.Move.canceled += ctx => moveStick = Vector2.zero;
+
+		controls.Gameplay.Rotate.performed += ctx => rotateStick = ctx.ReadValue<Vector2>();
 		// on release, fire arrow
-		controls.Gameplay.Rotate.canceled += ctx => rotate = Vector2.zero;
+		controls.Gameplay.Rotate.canceled += ctx => rotateStick = Vector2.zero;
 	}
 
     // Start is called before the first frame update
@@ -44,21 +50,45 @@ public class Player : MonoBehaviour
     // Called 50 times per second - if I remember right
     void FixedUpdate()
     {
-		Vector3 m = new Vector3(move.x * moveSpeed, 0, move.y * moveSpeed) * Time.deltaTime;
-		transform.Translate(m, Space.World);
+		Vector3 moveVector = new Vector3(moveStick.x * moveSpeed, 0, moveStick.y * moveSpeed) * Time.deltaTime;
+		transform.Translate(moveVector, Space.World);
 
-		Vector3 r = new Vector3(0, rotate.x) * 100f * Time.deltaTime;
-		transform.Rotate(r, Space.World);
+		Vector3 rotateVector = (Vector3.right * rotateStick.x) + (Vector3.forward * rotateStick.y);
+		if (rotateVector.sqrMagnitude > 0.0f)
+		{
+			transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
+
+			if (arrowDrawn)
+			{
+				if (rotateVector.sqrMagnitude < 0.9)
+				{
+					ShootArrow();
+					arrowDrawn = false;
+				}
+			}
+			else
+			{
+				if (rotateVector.sqrMagnitude == 1.0)
+				{
+					arrowDrawn = true;
+					//start timer
+				}
+			}
+		}	
 	}
 
-    // Increases the size of the player object - just for fun, will be removed or replaced
-    void Grow()
-    {
-        transform.localScale *= 1.1f;
-    }
+	// Fires an arrow from the player firepoint
+	void ShootArrow()
+	{
+		GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);	
+		Rigidbody rb = arrow.GetComponent<Rigidbody>();
+		arrow.GetComponent<Arrow>().ID = this.name;
+		rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
+	}
 
-    // Enables controls
-    void OnEnable()
+
+	// Enables controls
+	void OnEnable()
     {
         controls.Gameplay.Enable();
     }
