@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-	public GameObject parent;
+	public Rigidbody rb;
 
 	private string _id;
+
+	private bool deadArrow = false;
 
 	// property for arrow ID
 	public string ID
@@ -38,14 +40,17 @@ public class Arrow : MonoBehaviour
 	{
 		GameObject coll = collision.gameObject;
 		
-		if (coll.tag == "Player" && coll.name != ID)
+		if (coll.tag == "Player" && coll.name != ID && !deadArrow)
 		{
 			Destroy(coll);
+			Destroy(this);
 		}
 		
 		if (coll.tag == "Terrain")
 		{
-
+			rb.velocity = Vector3.zero;
+			rb.useGravity = true;
+			deadArrow = true;
 		}
 	}
 }
