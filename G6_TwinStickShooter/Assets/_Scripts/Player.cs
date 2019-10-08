@@ -38,18 +38,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		Vector2 m = new Vector2(move.x * moveSpeed, move.y * moveSpeed) * Time.deltaTime;
-		transform.Translate(m, Space.World);
-
-		Vector2 r = new Vector2(rotate.y, 0) * 100f * Time.deltaTime;
-		transform.Rotate(r, Space.World);
+		
     }
 
     // Called 50 times per second - if I remember right
     void FixedUpdate()
     {
+		Vector3 m = new Vector3(move.x * moveSpeed, 0, move.y * moveSpeed) * Time.deltaTime;
+		transform.Translate(m, Space.World);
 
-    }
+		Vector3 r = new Vector3(0, rotate.x) * 100f * Time.deltaTime;
+		transform.Rotate(r, Space.World);
+	}
 
     // Increases the size of the player object - just for fun, will be removed or replaced
     void Grow()
