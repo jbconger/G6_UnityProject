@@ -88,7 +88,7 @@ public class PlayerControls : IInputActionCollection
                     ""name"": """",
                     ""id"": ""c7420c1a-5dee-4e5a-924f-bf7722669410"",
                     ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": ""Press(behavior=1)"",
+                    ""interactions"": ""Press(pressPoint=0.5,behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
