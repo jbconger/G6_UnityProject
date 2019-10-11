@@ -46,7 +46,8 @@ public class Player : MonoBehaviour
     // Called 50 times per second - if I remember right
     void FixedUpdate()
     {
-
+        Move();
+        Rotate();
 	}
 
 	// Right trigger is released
@@ -59,7 +60,7 @@ public class Player : MonoBehaviour
             {
                 GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody rb = arrow.GetComponent<Rigidbody>();
-                arrow.GetComponent<Arrow>().ID = this.name;
+                arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
                 rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
 
                 arrowPulled = false;
@@ -72,24 +73,19 @@ public class Player : MonoBehaviour
         {
             GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
             Rigidbody rb = arrow.GetComponent<Rigidbody>();
-            arrow.GetComponent<Arrow>().ID = this.name;
+            arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
             rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
         }
     }
 
 	void OnMove(InputValue value)
 	{
-		Vector2 moveStick = value.Get<Vector2>();
-		Vector3 movement = new Vector3(moveStick.x * moveSpeed, 0, moveStick.y * moveSpeed);
-        rbody.AddForce(movement, ForceMode.Impulse);
-        //transform.Translate(movement, Space.World);
+		moveStick = value.Get<Vector2>();
 	}
 
 	void OnRotate(InputValue value)
 	{
-		rotateStick = value.Get<Vector2>();
-		Vector3 rotateVector = (Vector3.right * rotateStick.x) + (Vector3.forward * rotateStick.y);
-		transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
+		rotateStick = value.Get<Vector2>();	
 	}
 
 	void OnDodgeRoll()
@@ -107,5 +103,17 @@ public class Player : MonoBehaviour
     {
         if (arrowNotched)
             arrowPulled = true;
+    }
+
+    void Move()
+    {
+        Vector3 movement = new Vector3(moveStick.x * moveSpeed, 0, moveStick.y * moveSpeed);
+        rbody.AddForce(movement, ForceMode.Impulse);
+    }
+
+    void Rotate()
+    {
+        Vector3 rotateVector = (Vector3.right * rotateStick.x) + (Vector3.forward * rotateStick.y);
+        transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
     }
 }

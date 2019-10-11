@@ -6,12 +6,12 @@ public class Arrow : MonoBehaviour
 {
 	public Rigidbody rb;
 
-	private string _id;
+	private int _id;
 
 	private bool deadArrow = false;
 
 	// property for arrow ID
-	public string ID
+	public int ID
 	{
 		get
 		{
@@ -40,10 +40,10 @@ public class Arrow : MonoBehaviour
 	{
 		GameObject coll = collision.gameObject;
 		
-		if (coll.tag == "Player" && coll.name != ID && !deadArrow)
+		if (coll.tag == "Player" && coll.GetInstanceID() != ID && !deadArrow)
 		{
 			Destroy(coll);
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 		
 		if (coll.tag == "Terrain")
