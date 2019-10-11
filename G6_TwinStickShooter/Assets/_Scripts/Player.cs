@@ -5,6 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    // player rigidbody
+    public Rigidbody rbody;
+
 	// move speed of player
 	public float moveSpeed = 5f;
 
@@ -15,10 +18,13 @@ public class Player : MonoBehaviour
 	// arrow and fire point
 	public GameObject arrowPrefab;
 	public Transform firePoint;
+    private bool arrowNotched = false;
+    private bool arrowPulled = false;
+    private float chargeTime;
+    public bool useComplex;
 
 	// arrow speed
 	public float arrowSpeed = 20f;
-	bool arrowDrawn;
 
 	void Awake()
 	{
@@ -43,20 +49,40 @@ public class Player : MonoBehaviour
 
 	}
 
-	// called when fire button is pressed
+	// Right trigger is released
 	void OnFire()
 	{
-		GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
-		Rigidbody rb = arrow.GetComponent<Rigidbody>();
-		arrow.GetComponent<Arrow>().ID = this.name;
-		rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
-	}
+        //uses complex controls
+        if (useComplex)
+        {
+            if (arrowNotched && arrowPulled)
+            {
+                GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+                Rigidbody rb = arrow.GetComponent<Rigidbody>();
+                arrow.GetComponent<Arrow>().ID = this.name;
+                rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
+
+                arrowPulled = false;
+            }
+
+            arrowNotched = false;
+        }
+        //uses simple controls
+        else
+        {
+            GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+            Rigidbody rb = arrow.GetComponent<Rigidbody>();
+            arrow.GetComponent<Arrow>().ID = this.name;
+            rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
+        }
+    }
 
 	void OnMove(InputValue value)
 	{
 		Vector2 moveStick = value.Get<Vector2>();
 		Vector3 movement = new Vector3(moveStick.x * moveSpeed, 0, moveStick.y * moveSpeed);
-		transform.Translate(movement, Space.World);
+        rbody.AddForce(movement, ForceMode.Impulse);
+        //transform.Translate(movement, Space.World);
 	}
 
 	void OnRotate(InputValue value)
@@ -70,4 +96,16 @@ public class Player : MonoBehaviour
 	{
 
 	}
+
+    void OnNotchArrow()
+    {
+        arrowNotched = true;
+        //TODO start timer
+    }
+
+    void OnPullArrow()
+    {
+        if (arrowNotched)
+            arrowPulled = true;
+    }
 }

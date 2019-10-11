@@ -42,9 +42,25 @@ public class PlayerControls : IInputActionCollection
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Dodge Roll"",
+                    ""name"": ""DodgeRoll"",
                     ""type"": ""Button"",
                     ""id"": ""0a9f35d4-771a-4a0c-b3d8-d5af11f64248"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""NotchArrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""70e85cec-36c4-4d5c-9123-1c90a4c8fa13"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""PullArrow"",
+                    ""type"": ""Button"",
+                    ""id"": ""27eb8b1d-4e4c-4b7f-9fdc-4960d972f6d5"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -77,21 +93,43 @@ public class PlayerControls : IInputActionCollection
                     ""name"": """",
                     ""id"": ""43efffe3-d2bd-4081-86c2-228a0384bdd0"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=0.5)"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dodge Roll"",
+                    ""action"": ""DodgeRoll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""c7420c1a-5dee-4e5a-924f-bf7722669410"",
-                    ""path"": ""<Gamepad>/rightStick"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
                     ""interactions"": ""Press(pressPoint=0.5,behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1742dc90-a724-4e6c-887d-9d6b88e61b0f"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press(pressPoint=0.5)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NotchArrow"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34317ee3-59f0-4f64-835c-315cdf047f68"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PullArrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -105,7 +143,9 @@ public class PlayerControls : IInputActionCollection
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
         m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
-        m_Gameplay_DodgeRoll = m_Gameplay.FindAction("Dodge Roll", throwIfNotFound: true);
+        m_Gameplay_DodgeRoll = m_Gameplay.FindAction("DodgeRoll", throwIfNotFound: true);
+        m_Gameplay_NotchArrow = m_Gameplay.FindAction("NotchArrow", throwIfNotFound: true);
+        m_Gameplay_PullArrow = m_Gameplay.FindAction("PullArrow", throwIfNotFound: true);
     }
 
     ~PlayerControls()
@@ -159,6 +199,8 @@ public class PlayerControls : IInputActionCollection
     private readonly InputAction m_Gameplay_Rotate;
     private readonly InputAction m_Gameplay_Fire;
     private readonly InputAction m_Gameplay_DodgeRoll;
+    private readonly InputAction m_Gameplay_NotchArrow;
+    private readonly InputAction m_Gameplay_PullArrow;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
@@ -167,6 +209,8 @@ public class PlayerControls : IInputActionCollection
         public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
         public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
+        public InputAction @NotchArrow => m_Wrapper.m_Gameplay_NotchArrow;
+        public InputAction @PullArrow => m_Wrapper.m_Gameplay_PullArrow;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -188,6 +232,12 @@ public class PlayerControls : IInputActionCollection
                 DodgeRoll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
+                NotchArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
+                NotchArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
+                NotchArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
+                PullArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
+                PullArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
+                PullArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -204,6 +254,12 @@ public class PlayerControls : IInputActionCollection
                 DodgeRoll.started += instance.OnDodgeRoll;
                 DodgeRoll.performed += instance.OnDodgeRoll;
                 DodgeRoll.canceled += instance.OnDodgeRoll;
+                NotchArrow.started += instance.OnNotchArrow;
+                NotchArrow.performed += instance.OnNotchArrow;
+                NotchArrow.canceled += instance.OnNotchArrow;
+                PullArrow.started += instance.OnPullArrow;
+                PullArrow.performed += instance.OnPullArrow;
+                PullArrow.canceled += instance.OnPullArrow;
             }
         }
     }
@@ -214,5 +270,7 @@ public class PlayerControls : IInputActionCollection
         void OnRotate(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnDodgeRoll(InputAction.CallbackContext context);
+        void OnNotchArrow(InputAction.CallbackContext context);
+        void OnPullArrow(InputAction.CallbackContext context);
     }
 }

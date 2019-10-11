@@ -30,9 +30,25 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Dodge Roll",
+                    "name": "DodgeRoll",
                     "type": "Button",
                     "id": "0a9f35d4-771a-4a0c-b3d8-d5af11f64248",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "NotchArrow",
+                    "type": "Button",
+                    "id": "70e85cec-36c4-4d5c-9123-1c90a4c8fa13",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "PullArrow",
+                    "type": "Button",
+                    "id": "27eb8b1d-4e4c-4b7f-9fdc-4960d972f6d5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -65,21 +81,43 @@
                     "name": "",
                     "id": "43efffe3-d2bd-4081-86c2-228a0384bdd0",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
+                    "interactions": "Press(pressPoint=0.5)",
                     "processors": "",
                     "groups": "",
-                    "action": "Dodge Roll",
+                    "action": "DodgeRoll",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "c7420c1a-5dee-4e5a-924f-bf7722669410",
-                    "path": "<Gamepad>/rightStick",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "Press(pressPoint=0.5,behavior=1)",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1742dc90-a724-4e6c-887d-9d6b88e61b0f",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press(pressPoint=0.5)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NotchArrow",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "34317ee3-59f0-4f64-835c-315cdf047f68",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PullArrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
