@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
 
 	void Awake()
 	{
-
+		
 	}
 
     // Start is called before the first frame update
@@ -40,7 +40,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		
+		if (transform.position.y < -2)
+		{
+			Destroy(this.gameObject);
+		}
     }
 
     // Called 50 times per second - if I remember right

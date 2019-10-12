@@ -32,7 +32,8 @@ public class Arrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+		Vector3 rotateVector = new Vector3(rb.velocity.normalized.x, 0, rb.velocity.normalized.z);
+		transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
     }
 
 	// called when arrow collides with another object

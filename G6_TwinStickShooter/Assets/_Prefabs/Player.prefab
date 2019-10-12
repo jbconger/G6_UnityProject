@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3035918601531223975}
   - component: {fileID: 3035918601531223992}
   - component: {fileID: -1846646511613281143}
+  - component: {fileID: 1634498382572509654}
   - component: {fileID: 3035918601531223993}
   - component: {fileID: 3035918601531223994}
   - component: {fileID: 6613249287258073882}
@@ -94,11 +95,24 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 30
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1634498382572509654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035918601531223995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99063118d1a3b0948a52825c17b17528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravityScale: 60
 --- !u!65 &3035918601531223993
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -125,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbody: {fileID: -1846646511613281143}
-  moveSpeed: 5
+  moveSpeed: 20
   arrowPrefab: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38,
     type: 3}
   firePoint: {fileID: 3035918602809019557}
