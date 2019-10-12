@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WindHazard : MonoBehaviour
 {
-	public float windStrength = 100f;
+	public float windStrength;
 
 	//public float windSpin = 100f;
 
