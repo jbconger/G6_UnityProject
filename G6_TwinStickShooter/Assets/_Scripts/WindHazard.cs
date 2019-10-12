@@ -8,6 +8,6 @@ public class WindHazard : MonoBehaviour
 	private void OnTriggerStay(Collider other)
 	{
 		Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-		rb.AddForce(Vector3.forward * windStrength, ForceMode.Acceleration);
+		rb.AddForce(transform.forward * windStrength, ForceMode.Acceleration);
 	}
 }
