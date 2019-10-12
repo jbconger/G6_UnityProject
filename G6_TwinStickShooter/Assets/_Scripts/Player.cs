@@ -1,32 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    // player rigidbody
-    public Rigidbody rbody;
-
-	// move speed of player
-	public float moveSpeed = 5f;
-
-	// vectors for moving and rotating player
-	Vector2 moveStick;
-	Vector2 rotateStick;
-
-	// arrow and fire point
+    public Rigidbody rbody; //the player's rigidbody
+	public float moveSpeed = 5f; //player move speed
 	public GameObject arrowPrefab;
-	public Transform firePoint;
+	public Transform firePoint; //position the arrow is fired from
+    public bool useComplex;
+    public float minArrowSpeed = 20f; //arrow speed
+    public float maxCharge = 3.0f;
+
     private bool arrowNotched = false;
     private bool arrowPulled = false;
     private float chargeTime;
-    public bool useComplex;
+    private Vector2 moveStick; //position of the left stick
+    private Vector2 rotateStick; //position of the right stick
 
-	// arrow speed
-	public float arrowSpeed = 20f;
-
-	void Awake()
+    void Awake()
 	{
 		
 	}
@@ -44,6 +35,11 @@ public class Player : MonoBehaviour
 		{
 			Destroy(this.gameObject);
 		}
+
+        if (arrowPulled && chargeTime < maxCharge)
+        {
+            chargeTime += Time.deltaTime;
+        }
     }
 
     // Called 50 times per second - if I remember right
@@ -64,7 +60,7 @@ public class Player : MonoBehaviour
                 GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody rb = arrow.GetComponent<Rigidbody>();
                 arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
-                rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
+                rb.AddForce(firePoint.forward * -minArrowSpeed * chargeTime, ForceMode.Impulse);
 
                 arrowPulled = false;
             }
@@ -77,7 +73,7 @@ public class Player : MonoBehaviour
             GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
             Rigidbody rb = arrow.GetComponent<Rigidbody>();
             arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
-            rb.AddForce(firePoint.forward * -arrowSpeed, ForceMode.Impulse);
+            rb.AddForce(firePoint.forward * -minArrowSpeed * chargeTime, ForceMode.Impulse);
         }
     }
 
@@ -105,7 +101,11 @@ public class Player : MonoBehaviour
     void OnPullArrow()
     {
         if (arrowNotched)
+        {
             arrowPulled = true;
+            chargeTime = 1.0f;
+        }
+            
     }
 
     void Move()
