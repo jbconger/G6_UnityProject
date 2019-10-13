@@ -36,19 +36,49 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  CurrentGraph: {fileID: 0}
-  RecentlyOpenedGraphs: []
+  CurrentGraph: {fileID: 11400000, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  RecentlyOpenedGraphs:
+  - {fileID: 11400000, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
   CopiedNodes: []
-  DeletedNodes: []
+  DeletedNodes:
+  - {fileID: 3261457749682057721, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 6512811537912954154, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 4091889178576800124, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -2852379871354818852, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 5700776758110656344, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 8004958246997593684, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -4841194497858259466, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 6997972347190362026, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -6181965102393505121, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -125776746935949846, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -1102304823833887574, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -6639020703521975972, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 8322437419309875390, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -3240324960075871937, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -4293513656455660777, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -4499536386307420994, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 4879939129447641197, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 5015601742040298772, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 4909977023178741605, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -6330479425027403351, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: 3449701417914844810, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+  - {fileID: -5379694499856017704, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
   SelectedNodes: []
-  GraphTabs: []
-  CurrentView: 0
-  CurrentPanOffset: {x: 0, y: 0}
+  GraphTabs:
+  - IsRootTab: 1
+    Graph: {fileID: 11400000, guid: 490d15185e537c546b5ef4381d59e750, type: 2}
+    SubGraphNode: {fileID: 0}
+    Zoom: 0.7
+    PanOffset: {x: 434.65463, y: 177.32951}
+    SelectedNodes: []
+    DeletedNodes: []
+  CurrentView: 1
+  CurrentPanOffset: {x: 434.65463, y: 177.32951}
   DefaultPanOffset: {x: 0, y: 0}
   IsDirty: 0
   SaveCurrentGraphWithControlS: 1
   CurrentDotAnimationSpeed: 0.6
-  CurrentZoom: 1
+  CurrentZoom: 0.7
   DefaultDotAnimationSpeed: 0.6
   DefaultZoom: 1
   ShowNodeNotes: 1
