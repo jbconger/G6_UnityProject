@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f4711e43d382a23419023dace925b2a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,12 +139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbody: {fileID: -1846646511613281143}
-  moveSpeed: 20
+  moveSpeed: 30
   arrowPrefab: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38,
     type: 3}
   firePoint: {fileID: 3035918602809019557}
   useComplex: 1
-  arrowSpeed: 20
+  minArrowSpeed: 20
+  maxCharge: 3
 --- !u!114 &6613249287258073882
 MonoBehaviour:
   m_ObjectHideFlags: 0
