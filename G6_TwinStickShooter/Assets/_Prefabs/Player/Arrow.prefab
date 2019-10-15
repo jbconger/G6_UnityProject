@@ -123,3 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2224945935639994223}
+  winText: {fileID: 3822021532915613273, guid: 01e7d13b65e412d43a6fad57a9623aac, type: 3}
+  vertLimit: 22
+  horizLimit: 24

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   welcomeScreenVersion: '1.9.0 '
   playmakerVersion: 
-  showWelcomeScreen: 1
+  showWelcomeScreen: 0
   showUpgradeGuide: 1
-  lastAutoUpdateSignature: 2019.2.8f1__C:/Users/brand/Documents/GitHub/G6_UnityProject/G6_TwinStickShooter/Assets__0.0.0.0
+  lastAutoUpdateSignature: 2019.2.8f1__D:/Files/U of U/EAE 3710/G6_UnityProject/G6_TwinStickShooter/Assets__0.0.0.0
   useLegacyNetworking: 0
