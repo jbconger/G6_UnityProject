@@ -64,6 +64,14 @@ public class PlayerControls : IInputActionCollection
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""91f06cb7-0caf-4265-9ce0-ab3958958492"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -132,6 +140,17 @@ public class PlayerControls : IInputActionCollection
                     ""action"": ""PullArrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90eb6962-6c20-4496-a026-089d240d2611"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -192,6 +211,7 @@ public class PlayerControls : IInputActionCollection
         m_Gameplay_DodgeRoll = m_Gameplay.FindAction("DodgeRoll", throwIfNotFound: true);
         m_Gameplay_NotchArrow = m_Gameplay.FindAction("NotchArrow", throwIfNotFound: true);
         m_Gameplay_PullArrow = m_Gameplay.FindAction("PullArrow", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -251,6 +271,7 @@ public class PlayerControls : IInputActionCollection
     private readonly InputAction m_Gameplay_DodgeRoll;
     private readonly InputAction m_Gameplay_NotchArrow;
     private readonly InputAction m_Gameplay_PullArrow;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
@@ -261,6 +282,7 @@ public class PlayerControls : IInputActionCollection
         public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
         public InputAction @NotchArrow => m_Wrapper.m_Gameplay_NotchArrow;
         public InputAction @PullArrow => m_Wrapper.m_Gameplay_PullArrow;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -288,6 +310,9 @@ public class PlayerControls : IInputActionCollection
                 PullArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
                 PullArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
                 PullArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
+                Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -310,6 +335,9 @@ public class PlayerControls : IInputActionCollection
                 PullArrow.started += instance.OnPullArrow;
                 PullArrow.performed += instance.OnPullArrow;
                 PullArrow.canceled += instance.OnPullArrow;
+                Pause.started += instance.OnPause;
+                Pause.performed += instance.OnPause;
+                Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -363,6 +391,7 @@ public class PlayerControls : IInputActionCollection
         void OnDodgeRoll(InputAction.CallbackContext context);
         void OnNotchArrow(InputAction.CallbackContext context);
         void OnPullArrow(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

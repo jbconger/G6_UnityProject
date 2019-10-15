@@ -108,7 +108,12 @@ public class Player : MonoBehaviour
             
     }
 
-    void Move()
+	void OnPause()
+	{
+		
+	}
+
+	void Move()
     {
         Vector3 movement = new Vector3(moveStick.x * moveSpeed, 0, moveStick.y * moveSpeed);
         rbody.AddForce(movement, ForceMode.Impulse);
