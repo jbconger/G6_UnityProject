@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Arrow : MonoBehaviour
 {
 	public Rigidbody rb;
+
+	// screen bounds
+	public float vertLimit, horizLimit;
 
 	private int _id;
 
@@ -32,6 +37,10 @@ public class Arrow : MonoBehaviour
     {
 		Vector3 rotateVector = new Vector3(rb.velocity.normalized.x, 0, rb.velocity.normalized.z);
 		transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
+
+		// destroy arrow if it exits play area
+		if (Math.Abs(transform.position.z) > vertLimit || transform.position.x > horizLimit)
+			Destroy(this.gameObject);
     }
 
 	// called when arrow collides with another object
