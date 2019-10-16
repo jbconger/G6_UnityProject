@@ -143,7 +143,7 @@ MonoBehaviour:
   arrowPrefab: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38,
     type: 3}
   firePoint: {fileID: 3035918602809019557}
-  useComplex: 0
+  useComplex: 1
   minArrowSpeed: 20
   maxCharge: 3
 --- !u!114 &6613249287258073882
