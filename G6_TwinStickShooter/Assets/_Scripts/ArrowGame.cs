@@ -9,7 +9,7 @@ public class ArrowGame : MonoBehaviour
 	private GameObject winUI;
 	private Text winText;
 
-	private bool roundOver = false;
+	//private bool roundOver = false;
 
     // Start is called before the first frame update
     void Awake()
