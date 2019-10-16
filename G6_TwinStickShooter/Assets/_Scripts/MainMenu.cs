@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 	public void StartGame()
 	{
 		SceneManager.LoadScene("LvL_v1");
-		SceneManager.SetActiveScene(SceneManager.GetSceneByName("LvL_v1"));
+		//SceneManager.SetActiveScene(SceneManager.GetSceneByName("LvL_v1"));
 	}
 
 	public void QuitGame()
