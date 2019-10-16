@@ -1,11 +1,12 @@
 // GENERATED AUTOMATICALLY FROM 'Assets/_Scripts/Controls/PlayerControls.inputactions'
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
 
-public class PlayerControls : IInputActionCollection
+public class PlayerControls : IInputActionCollection, IDisposable
 {
     private InputActionAsset asset;
     public PlayerControls()
@@ -218,7 +219,7 @@ public class PlayerControls : IInputActionCollection
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
     }
 
-    ~PlayerControls()
+    public void Dispose()
     {
         UnityEngine.Object.Destroy(asset);
     }
