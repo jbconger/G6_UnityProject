@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour
 {
@@ -52,16 +49,16 @@ public class Arrow : MonoBehaviour
 			Destroy(coll);
 			Destroy(this.gameObject);
 
-			ArrowGame gameScript = Camera.main.GetComponent<ArrowGame>();
-			gameScript.GameOver();
+			//ArrowGame gameScript = Camera.main.GetComponent<ArrowGame>();
+			//gameScript.GameOver();
 
-			float count = Time.time;
-            float timeToWait = 3.0f;
-			while(count + timeToWait < Time.time)
-			{
+			//float count = Time.time;
+   //         float timeToWait = 3.0f;
+			//while(count + timeToWait < Time.time)
+			//{
                 
-            }
-            SceneManager.LoadScene("Menus");
+   //         }
+   //         SceneManager.LoadScene("Menus");
 
         }
 		
