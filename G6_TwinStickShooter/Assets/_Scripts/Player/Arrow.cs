@@ -35,8 +35,8 @@ public class Arrow : MonoBehaviour
 		}
 
 		// destroy arrow if it exits play area
-		if (Math.Abs(transform.position.z) > vertLimit || Math.Abs(transform.position.x) > horizLimit)
-			Destroy(this.gameObject);
+		//if (Math.Abs(transform.position.z) > vertLimit || Math.Abs(transform.position.x) > horizLimit)
+		//	Destroy(this.gameObject);
     }
 
 	// called when arrow collides with another object
