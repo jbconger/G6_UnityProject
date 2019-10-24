@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4711e43d382a23419023dace925b2a4, type: 2}
+  - {fileID: 2100000, guid: 27a9c2aedf1d03c46a777e0dd6845cf6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 65ccc490289540047accea4a777efd89,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 1
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -169,7 +169,54 @@ MonoBehaviour:
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3035918601531223995}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 003121ea-0373-4869-8ac1-6df38ccdb39f
+    m_ActionName: Gameplay/Move[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d58a106-63d9-494e-a5db-f65faa0d9f30
+    m_ActionName: Gameplay/Rotate[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a87dc691-ad20-40bd-94ba-e079f7e364f5
+    m_ActionName: Gameplay/Fire[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0a9f35d4-771a-4a0c-b3d8-d5af11f64248
+    m_ActionName: Gameplay/DodgeRoll[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 70e85cec-36c4-4d5c-9123-1c90a4c8fa13
+    m_ActionName: Gameplay/NotchArrow[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 27eb8b1d-4e4c-4b7f-9fdc-4960d972f6d5
+    m_ActionName: Gameplay/PullArrow[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 91f06cb7-0caf-4265-9ce0-ab3958958492
+    m_ActionName: Gameplay/Pause[/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6cbda331-3b72-4cc8-b3b1-a22fa546c51e
+    m_ActionName: UI/Move[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bd769f4b-bd6c-47cf-987d-98413686fa14
+    m_ActionName: UI/Select[/XInputControllerWindows/buttonSouth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: d3f7c1da-3f33-41d8-a77b-a4c3a544e3ad
