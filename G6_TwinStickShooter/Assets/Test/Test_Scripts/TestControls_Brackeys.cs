@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/_Scripts/Jon's Test Scripts/TestControls_Brackeys.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Test/Test_Scripts/TestControls_Brackeys.inputactions'
 
 using System;
 using System.Collections;
@@ -44,11 +44,11 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Fire"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""c6fb46d0-b716-45ab-bdd6-079fd22d450a"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Stick"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -88,8 +88,8 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c61be6c4-4a7f-438b-8791-7bea0c338ec2"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
