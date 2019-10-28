@@ -2367,13 +2367,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702982404}
-  m_LocalRotation: {x: 0.5095749, y: -0, z: -0, w: 0.86042637}
-  m_LocalPosition: {x: 0.2, y: 21.03, z: -16.08}
+  m_LocalRotation: {x: 0.5095672, y: 0, z: 0, w: 0.8604309}
+  m_LocalPosition: {x: 0.2, y: 18.83, z: -14.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 61.271004, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 61.27, y: 0, z: 0}
 --- !u!114 &702982408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2398,16 +2398,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ea38ee861f3b94e9c6e592e72b23d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelFocus: {fileID: 0}
-  Players:
-  - {fileID: 3035918601531223995, guid: 836223d13c154074db75593dd0084672, type: 3}
+  LevelFocus: {fileID: 1331181602}
+  Players: []
   DepthUpdateSpeed: 5
   AngleUpdateSpeed: 7
   PositionUpdateSpeed: 5
-  DepthMax: -10
-  DepthMin: -22
-  AngleMax: 11
-  AngleMin: 3
+  DepthMax: -14.24
+  DepthMin: -14.24
+  AngleMax: 61.27
+  AngleMin: 61.27
 --- !u!1 &750568683
 GameObject:
   m_ObjectHideFlags: 0
