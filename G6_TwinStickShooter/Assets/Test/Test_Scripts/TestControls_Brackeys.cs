@@ -31,7 +31,7 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""c0c7992e-3ab8-4c24-aa11-6bca222b3aa6"",
                     ""expectedControlType"": ""Stick"",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(max=0.98)"",
                     ""interactions"": """"
                 },
                 {
@@ -44,11 +44,11 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Fire"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""c6fb46d0-b716-45ab-bdd6-079fd22d450a"",
-                    ""expectedControlType"": ""Stick"",
-                    ""processors"": """",
-                    ""interactions"": """"
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": ""AxisDeadzone(max=0.95)"",
+                    ""interactions"": ""Press(pressPoint=1)""
                 }
             ],
             ""bindings"": [
@@ -68,7 +68,7 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                     ""id"": ""1d42ad30-afef-47b6-9d88-a8efbc1e78e4"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(max=0.98)"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -88,9 +88,9 @@ public class TestControls_Brackeys : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""c61be6c4-4a7f-438b-8791-7bea0c338ec2"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": ""Press(pressPoint=1,behavior=1)"",
-                    ""processors"": """",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": ""AxisDeadzone(max=0.95)"",
                     ""groups"": """",
                     ""action"": ""Fire"",
                     ""isComposite"": false,
