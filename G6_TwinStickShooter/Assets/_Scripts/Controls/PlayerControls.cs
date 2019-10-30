@@ -27,7 +27,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Rotate"",
+                    ""name"": ""Look"",
                     ""type"": ""Value"",
                     ""id"": ""8d58a106-63d9-494e-a5db-f65faa0d9f30"",
                     ""expectedControlType"": ""Stick"",
@@ -51,9 +51,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""NotchArrow"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
-                    ""id"": ""70e85cec-36c4-4d5c-9123-1c90a4c8fa13"",
+                    ""id"": ""91f06cb7-0caf-4265-9ce0-ab3958958492"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -61,15 +61,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""PullArrow"",
                     ""type"": ""Button"",
-                    ""id"": ""27eb8b1d-4e4c-4b7f-9fdc-4960d972f6d5"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""91f06cb7-0caf-4265-9ce0-ab3958958492"",
+                    ""id"": ""995c3629-a30f-4b09-b7fa-64821bf429d6"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -94,7 +86,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate"",
+                    ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -102,7 +94,7 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""43efffe3-d2bd-4081-86c2-228a0384bdd0"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Press(pressPoint=0.5)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DodgeRoll"",
@@ -113,32 +105,10 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""c7420c1a-5dee-4e5a-924f-bf7722669410"",
                     ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": ""Press(pressPoint=0.5,behavior=1)"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1742dc90-a724-4e6c-887d-9d6b88e61b0f"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": ""Press(pressPoint=0.5)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""NotchArrow"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""34317ee3-59f0-4f64-835c-315cdf047f68"",
-                    ""path"": ""<Gamepad>/rightStick"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PullArrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -150,6 +120,17 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""292e66fd-6007-464d-8b3b-f628df0612c6"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PullArrow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -207,12 +188,11 @@ public class PlayerControls : IInputActionCollection, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-        m_Gameplay_Rotate = m_Gameplay.FindAction("Rotate", throwIfNotFound: true);
+        m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
         m_Gameplay_DodgeRoll = m_Gameplay.FindAction("DodgeRoll", throwIfNotFound: true);
-        m_Gameplay_NotchArrow = m_Gameplay.FindAction("NotchArrow", throwIfNotFound: true);
-        m_Gameplay_PullArrow = m_Gameplay.FindAction("PullArrow", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_PullArrow = m_Gameplay.FindAction("PullArrow", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
@@ -267,23 +247,21 @@ public class PlayerControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Move;
-    private readonly InputAction m_Gameplay_Rotate;
+    private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_Fire;
     private readonly InputAction m_Gameplay_DodgeRoll;
-    private readonly InputAction m_Gameplay_NotchArrow;
-    private readonly InputAction m_Gameplay_PullArrow;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_PullArrow;
     public struct GameplayActions
     {
         private PlayerControls m_Wrapper;
         public GameplayActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-        public InputAction @Rotate => m_Wrapper.m_Gameplay_Rotate;
+        public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
-        public InputAction @NotchArrow => m_Wrapper.m_Gameplay_NotchArrow;
-        public InputAction @PullArrow => m_Wrapper.m_Gameplay_PullArrow;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @PullArrow => m_Wrapper.m_Gameplay_PullArrow;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -296,24 +274,21 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                Rotate.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                Rotate.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
-                Rotate.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotate;
+                Look.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
+                Look.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
+                Look.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLook;
                 Fire.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 Fire.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 Fire.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFire;
                 DodgeRoll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
-                NotchArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
-                NotchArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
-                NotchArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNotchArrow;
-                PullArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
-                PullArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
-                PullArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
                 Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                PullArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
+                PullArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
+                PullArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,24 +296,21 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Move.started += instance.OnMove;
                 Move.performed += instance.OnMove;
                 Move.canceled += instance.OnMove;
-                Rotate.started += instance.OnRotate;
-                Rotate.performed += instance.OnRotate;
-                Rotate.canceled += instance.OnRotate;
+                Look.started += instance.OnLook;
+                Look.performed += instance.OnLook;
+                Look.canceled += instance.OnLook;
                 Fire.started += instance.OnFire;
                 Fire.performed += instance.OnFire;
                 Fire.canceled += instance.OnFire;
                 DodgeRoll.started += instance.OnDodgeRoll;
                 DodgeRoll.performed += instance.OnDodgeRoll;
                 DodgeRoll.canceled += instance.OnDodgeRoll;
-                NotchArrow.started += instance.OnNotchArrow;
-                NotchArrow.performed += instance.OnNotchArrow;
-                NotchArrow.canceled += instance.OnNotchArrow;
-                PullArrow.started += instance.OnPullArrow;
-                PullArrow.performed += instance.OnPullArrow;
-                PullArrow.canceled += instance.OnPullArrow;
                 Pause.started += instance.OnPause;
                 Pause.performed += instance.OnPause;
                 Pause.canceled += instance.OnPause;
+                PullArrow.started += instance.OnPullArrow;
+                PullArrow.performed += instance.OnPullArrow;
+                PullArrow.canceled += instance.OnPullArrow;
             }
         }
     }
@@ -387,12 +359,11 @@ public class PlayerControls : IInputActionCollection, IDisposable
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnRotate(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnDodgeRoll(InputAction.CallbackContext context);
-        void OnNotchArrow(InputAction.CallbackContext context);
-        void OnPullArrow(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnPullArrow(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

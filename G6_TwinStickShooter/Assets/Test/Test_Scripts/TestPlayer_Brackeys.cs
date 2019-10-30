@@ -13,9 +13,6 @@ public class TestPlayer_Brackeys : MonoBehaviour
 	//public bool useComplex;
 	public float minArrowSpeed = 20f; //arrow speed
 	public float maxCharge = 3.0f;
-
-	private bool arrowNotched = false;
-	private bool arrowPulled = false;
 	//private float chargeTime;
 	private Vector2 moveStick; //position of the left stick
 	private Vector2 lookStick; //position of the right stick

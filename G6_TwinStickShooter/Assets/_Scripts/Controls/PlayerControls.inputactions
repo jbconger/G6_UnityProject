@@ -14,7 +14,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Rotate",
+                    "name": "Look",
                     "type": "Value",
                     "id": "8d58a106-63d9-494e-a5db-f65faa0d9f30",
                     "expectedControlType": "Stick",
@@ -38,9 +38,9 @@
                     "interactions": ""
                 },
                 {
-                    "name": "NotchArrow",
+                    "name": "Pause",
                     "type": "Button",
-                    "id": "70e85cec-36c4-4d5c-9123-1c90a4c8fa13",
+                    "id": "91f06cb7-0caf-4265-9ce0-ab3958958492",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -48,15 +48,7 @@
                 {
                     "name": "PullArrow",
                     "type": "Button",
-                    "id": "27eb8b1d-4e4c-4b7f-9fdc-4960d972f6d5",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "91f06cb7-0caf-4265-9ce0-ab3958958492",
+                    "id": "995c3629-a30f-4b09-b7fa-64821bf429d6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -81,7 +73,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -89,7 +81,7 @@
                     "name": "",
                     "id": "43efffe3-d2bd-4081-86c2-228a0384bdd0",
                     "path": "<Gamepad>/leftTrigger",
-                    "interactions": "Press(pressPoint=0.5)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "DodgeRoll",
@@ -100,32 +92,10 @@
                     "name": "",
                     "id": "c7420c1a-5dee-4e5a-924f-bf7722669410",
                     "path": "<Gamepad>/rightTrigger",
-                    "interactions": "Press(pressPoint=0.5,behavior=1)",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1742dc90-a724-4e6c-887d-9d6b88e61b0f",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "Press(pressPoint=0.5)",
-                    "processors": "",
-                    "groups": "",
-                    "action": "NotchArrow",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "34317ee3-59f0-4f64-835c-315cdf047f68",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PullArrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -137,6 +107,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "292e66fd-6007-464d-8b3b-f628df0612c6",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PullArrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
