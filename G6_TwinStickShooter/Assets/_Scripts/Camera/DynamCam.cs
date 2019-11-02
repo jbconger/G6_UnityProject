@@ -85,6 +85,6 @@ public class DynamCam : MonoBehaviour
         float angle = Mathf.Lerp(AngleMax, AngleMin, lerpPercent);
 
         CameraEulerX = angle;
-        CameraPosition = new Vector3(averageCenter.x, averageCenter.y, depth);
+        CameraPosition = new Vector3(averageCenter.x, averageCenter.y, depth); 
     }
 }
