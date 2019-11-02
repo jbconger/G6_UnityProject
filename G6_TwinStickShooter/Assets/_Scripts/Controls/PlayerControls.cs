@@ -51,14 +51,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""91f06cb7-0caf-4265-9ce0-ab3958958492"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""PullArrow"",
                     ""type"": ""Button"",
                     ""id"": ""995c3629-a30f-4b09-b7fa-64821bf429d6"",
@@ -114,17 +106,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""90eb6962-6c20-4496-a026-089d240d2611"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""292e66fd-6007-464d-8b3b-f628df0612c6"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
@@ -142,9 +123,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""Value"",
+                    ""type"": ""Button"",
                     ""id"": ""6cbda331-3b72-4cc8-b3b1-a22fa546c51e"",
-                    ""expectedControlType"": ""Stick"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -152,6 +133,14 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""name"": ""Select"",
                     ""type"": ""Button"",
                     ""id"": ""bd769f4b-bd6c-47cf-987d-98413686fa14"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""e9b75867-c4b8-452b-9647-6d8b9f9328cf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -179,6 +168,17 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Select"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d775e05-f2de-46b3-a867-0655f3ff5e86"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -191,12 +191,12 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
         m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
         m_Gameplay_DodgeRoll = m_Gameplay.FindAction("DodgeRoll", throwIfNotFound: true);
-        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_PullArrow = m_Gameplay.FindAction("PullArrow", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Move = m_UI.FindAction("Move", throwIfNotFound: true);
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
+        m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -250,7 +250,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Look;
     private readonly InputAction m_Gameplay_Fire;
     private readonly InputAction m_Gameplay_DodgeRoll;
-    private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_PullArrow;
     public struct GameplayActions
     {
@@ -260,7 +259,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Gameplay_Look;
         public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
         public InputAction @DodgeRoll => m_Wrapper.m_Gameplay_DodgeRoll;
-        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @PullArrow => m_Wrapper.m_Gameplay_PullArrow;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
@@ -283,9 +281,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 DodgeRoll.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
                 DodgeRoll.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDodgeRoll;
-                Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
-                Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
-                Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 PullArrow.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
                 PullArrow.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
                 PullArrow.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPullArrow;
@@ -305,9 +300,6 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 DodgeRoll.started += instance.OnDodgeRoll;
                 DodgeRoll.performed += instance.OnDodgeRoll;
                 DodgeRoll.canceled += instance.OnDodgeRoll;
-                Pause.started += instance.OnPause;
-                Pause.performed += instance.OnPause;
-                Pause.canceled += instance.OnPause;
                 PullArrow.started += instance.OnPullArrow;
                 PullArrow.performed += instance.OnPullArrow;
                 PullArrow.canceled += instance.OnPullArrow;
@@ -321,12 +313,14 @@ public class PlayerControls : IInputActionCollection, IDisposable
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_Move;
     private readonly InputAction m_UI_Select;
+    private readonly InputAction m_UI_Pause;
     public struct UIActions
     {
         private PlayerControls m_Wrapper;
         public UIActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_UI_Move;
         public InputAction @Select => m_Wrapper.m_UI_Select;
+        public InputAction @Pause => m_Wrapper.m_UI_Pause;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -342,6 +336,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Select.started -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
                 Select.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
                 Select.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnSelect;
+                Pause.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                Pause.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
+                Pause.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -352,6 +349,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
                 Select.started += instance.OnSelect;
                 Select.performed += instance.OnSelect;
                 Select.canceled += instance.OnSelect;
+                Pause.started += instance.OnPause;
+                Pause.performed += instance.OnPause;
+                Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -362,12 +362,12 @@ public class PlayerControls : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnDodgeRoll(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
         void OnPullArrow(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnSelect(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

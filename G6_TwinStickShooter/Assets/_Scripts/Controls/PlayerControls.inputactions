@@ -38,14 +38,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "91f06cb7-0caf-4265-9ce0-ab3958958492",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "PullArrow",
                     "type": "Button",
                     "id": "995c3629-a30f-4b09-b7fa-64821bf429d6",
@@ -101,17 +93,6 @@
                 },
                 {
                     "name": "",
-                    "id": "90eb6962-6c20-4496-a026-089d240d2611",
-                    "path": "<Gamepad>/start",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "292e66fd-6007-464d-8b3b-f628df0612c6",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
@@ -129,9 +110,9 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "6cbda331-3b72-4cc8-b3b1-a22fa546c51e",
-                    "expectedControlType": "Stick",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 },
@@ -139,6 +120,14 @@
                     "name": "Select",
                     "type": "Button",
                     "id": "bd769f4b-bd6c-47cf-987d-98413686fa14",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "e9b75867-c4b8-452b-9647-6d8b9f9328cf",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
@@ -164,6 +153,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d775e05-f2de-46b3-a867-0655f3ff5e86",
+                    "path": "<Gamepad>/start",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

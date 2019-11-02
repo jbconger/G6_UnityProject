@@ -104,11 +104,6 @@ public class ArcherPlayer : MonoBehaviour
 		}
 	}
 
-	public void Pause(InputAction.CallbackContext ctx)
-	{
-		//TODO
-	}
-
 	// INPUT HELPER FUNCTIONS
 
 	void Moving()
