@@ -33,6 +33,8 @@ public class MenuManager : MonoBehaviour
     }
 
 	// input handler for pausing the game
+
+
 	public void OnPause(InputAction.CallbackContext ctx)
 	{
 		if (ctx.phase is InputActionPhase.Started)
@@ -66,7 +68,7 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
-		SceneManager.LoadScene("Level_1");
+		SceneManager.LoadScene("LvL_v1");
         // TODO: Will need to find the logic to restart a match rather than restart the entire application.
         // Application.LoadLevel(0); <--This looks correct, but just needs the right scene number, however will it still have the players loaded in?
     }
