@@ -18,23 +18,7 @@ public class MenuManager : MonoBehaviour
         isPaused = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // If escape(on keyboard) or start(on controller) are pressed, make the game object active
-        //if (Input.GetKeyDown(KeyCode.Escape) && !isPaused || Input.GetKeyDown(KeyCode.Joystick1Button7) && !isPaused || Input.GetKeyDown(KeyCode.Joystick2Button7) && !isPaused)
-        //{
-        //    Pause();
-        //}
-        //else if (Input.GetKeyDown(KeyCode.Escape) && isPaused || Input.GetKeyDown(KeyCode.Joystick1Button7) && isPaused || Input.GetKeyDown(KeyCode.Joystick2Button7) && isPaused)
-        //{
-        //    UnPause();
-        //}
-    }
-
 	// input handler for pausing the game
-
-
 	public void OnPause(InputAction.CallbackContext ctx)
 	{
 		if (ctx.phase is InputActionPhase.Started)
