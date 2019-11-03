@@ -30,6 +30,13 @@ public class MenuManager : MonoBehaviour
 		}
 	}
 
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // TODO: This will just load the next scene in the scene manager. To start I will set to the level, 
+        // but the next scene will be the Ready Menu.
+    }
+
 	public void Pause()
     {
         isPaused = true;
@@ -42,6 +49,11 @@ public class MenuManager : MonoBehaviour
         isPaused = false;
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void QuitToMM()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
