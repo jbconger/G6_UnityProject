@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
@@ -8,11 +7,11 @@ public class MultiTargetCamera : MonoBehaviour
 	public List<Transform> targets;
 	public Vector3 offset;
 	
-	public float smoothTime = 5f;
+	public float smoothTime = 2f;
 
 	public float minZoom = 20f;
-	public float maxZoom = 5f;
-	public float zoomLimiter = 5f;
+	public float maxZoom = 10f;
+	public float zoomLimiter = 2f;
 
 	private Vector3 velocity;
 	private Camera cam;
@@ -29,40 +28,32 @@ public class MultiTargetCamera : MonoBehaviour
 		if (targets.Count == 0)
 			return;
 
-		Move();
-		Zoom();
+		var bounds = EncapsulateBounds();
+		Move(bounds.center);
+		Zoom(bounds.size.x);
     }
 
-	private void Move()
+	private void Move(Vector3 bounds)
 	{
-		Vector3 centerPoint = GetCenterPoint();
-		Vector3 newPosition = centerPoint + offset;
+		Vector3 newPosition = bounds + offset;
 		transform.position = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
 	}
 
-	void Zoom()
+	void Zoom(float bounds)
 	{
-		float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-		cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
+		float newZoom;
+
+		if (bounds > minZoom)
+			newZoom = Mathf.Lerp(maxZoom, minZoom, smoothTime);
+		else if (bounds < maxZoom)
+			newZoom = Mathf.Lerp(bounds, maxZoom, smoothTime);
+		else
+			newZoom = Mathf.Lerp(maxZoom, bounds, smoothTime);
+		//float newZoom = Mathf.Lerp(maxZoom, bounds, smoothTime);
+		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
 	}
 
-	Vector3 GetCenterPoint()
-	{
-		if (targets.Count == 1)
-		{
-			return targets[0].position;
-		}
-
-		var bounds = new Bounds(targets[0].position, Vector3.zero);
-		for (int i = 0; i < targets.Count; i++)
-		{
-			bounds.Encapsulate(targets[i].position);
-		}
-
-		return bounds.center;
-	}
-
-	float GetGreatestDistance()
+	Bounds EncapsulateBounds()
 	{
 		var bounds = new Bounds(targets[0].position, Vector3.zero);
 		for (int i = 0; i < targets.Count; i++)
@@ -70,6 +61,6 @@ public class MultiTargetCamera : MonoBehaviour
 			bounds.Encapsulate(targets[i].position);
 		}
 
-		return bounds.size.x;
+		return bounds;
 	}
 }

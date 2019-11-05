@@ -3441,13 +3441,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702982404}
-  m_LocalRotation: {x: 0.5095672, y: 0, z: 0, w: 0.8604309}
-  m_LocalPosition: {x: 0.2, y: 21.83, z: -9.77}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0, y: 21.83, z: -9.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 61.27, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!114 &702982408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3465,9 +3465,9 @@ MonoBehaviour:
   - {fileID: 695713257}
   offset: {x: 0, y: 10, z: -3}
   smoothTime: 2
-  minZoom: 40
+  minZoom: 20
   maxZoom: 10
-  zoomLimiter: 50
+  zoomLimiter: 2
 --- !u!114 &702982409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7953,17 +7953,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1533167328}
     m_Modifications:
-    - target: {fileID: 88145687338414702, guid: f00e12ef2c4998a4dae9533453c8df09,
-        type: 3}
-      propertyPath: m_TagString
-      value: Terrain
-      objectReference: {fileID: 0}
     - target: {fileID: 983647748660099342, guid: f00e12ef2c4998a4dae9533453c8df09,
         type: 3}
       propertyPath: m_Name
       value: Wall_D (1)
       objectReference: {fileID: 0}
     - target: {fileID: 983647748660099342, guid: f00e12ef2c4998a4dae9533453c8df09,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 88145687338414702, guid: f00e12ef2c4998a4dae9533453c8df09,
         type: 3}
       propertyPath: m_TagString
       value: Terrain
@@ -8076,17 +8076,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1533167328}
     m_Modifications:
-    - target: {fileID: 88145687338414702, guid: f00e12ef2c4998a4dae9533453c8df09,
-        type: 3}
-      propertyPath: m_TagString
-      value: Terrain
-      objectReference: {fileID: 0}
     - target: {fileID: 983647748660099342, guid: f00e12ef2c4998a4dae9533453c8df09,
         type: 3}
       propertyPath: m_Name
       value: Wall_D
       objectReference: {fileID: 0}
     - target: {fileID: 983647748660099342, guid: f00e12ef2c4998a4dae9533453c8df09,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
+    - target: {fileID: 88145687338414702, guid: f00e12ef2c4998a4dae9533453c8df09,
         type: 3}
       propertyPath: m_TagString
       value: Terrain
