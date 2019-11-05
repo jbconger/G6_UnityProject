@@ -2,17 +2,23 @@
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
-	//[SerializeField]
-	//Transform UIPanel;
+	PlayerControls controls;
 
 	public GameObject pauseMenuUI;
 
     public static bool isPaused;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		controls = new PlayerControls();
+
+		controls.UI.Pause.started += OnPause;
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         pauseMenuUI.SetActive(false);
         isPaused = false;
@@ -21,13 +27,10 @@ public class MenuManager : MonoBehaviour
 	// input handler for pausing the game
 	public void OnPause(InputAction.CallbackContext ctx)
 	{
-		if (ctx.phase is InputActionPhase.Started)
-		{
-			if (isPaused)
-				UnPause();
-			else
-				Pause();
-		}
+		if (isPaused)
+			UnPause();
+		else
+			Pause();
 	}
 
     public void PlayGame()
@@ -64,8 +67,12 @@ public class MenuManager : MonoBehaviour
 
     public void Restart()
     {
-		SceneManager.LoadScene("LvL_v1");
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         // TODO: Will need to find the logic to restart a match rather than restart the entire application.
         // Application.LoadLevel(0); <--This looks correct, but just needs the right scene number, however will it still have the players loaded in?
     }
+
+	// other items
+	private void OnEnable() { controls.Enable(); }
+	private void OnDisable() { controls.Disable(); }
 }
