@@ -9,8 +9,13 @@ public class TitleMenu : MonoBehaviour
 
 	PlayerControls controls;
 
-    // Start is called before the first frame update
-    void Start()
+	private void Awake()
+	{
+		controls = new PlayerControls();
+	}
+
+	// Start is called before the first frame update
+	void Start()
     {
         
     }

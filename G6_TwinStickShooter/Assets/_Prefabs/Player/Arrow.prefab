@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2224945935639994223}
+  cc: {fileID: 2224945935639994222}
   vertLimit: 22
   horizLimit: 24
 --- !u!1001 &5925059693690010439

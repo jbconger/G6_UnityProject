@@ -67,7 +67,7 @@ public class TP_Damm : MonoBehaviour
 	{
 		GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arrow.GetComponent<Rigidbody>();
-		arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
+		//arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
 		rb.AddForce(firePoint.forward * minArrowSpeed, ForceMode.Impulse);
 		Destroy(arrow, arrowDuration);
 	}

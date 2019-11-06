@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class ArcherPlayer : MonoBehaviour
 {
+	public GameManager gm;
 	public Rigidbody rbody;
 	public GameObject arrow;
 	public Transform firePoint;
@@ -19,7 +20,8 @@ public class ArcherPlayer : MonoBehaviour
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
 
-	// Update is called once per frame
+	// UPDATE FUNCTIONS
+
 	void Update()
 	{
 		if (isFallen)
@@ -38,11 +40,28 @@ public class ArcherPlayer : MonoBehaviour
 			isFallen = true;
 	}
 
-	// Called 50 times per second - if I remember right
 	void FixedUpdate()
 	{
 		Moving();
 		Looking();
+	}
+
+	// COLLISION HANDLERS
+
+	private void OnCollisionEnter(Collision collision)
+	{
+		GameObject coll = collision.gameObject;
+
+		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
+		{
+			// stop arrow
+			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+			// induce ragdoll physics
+
+			// show win message
+			gm.SendMessage("RoundOver", this);
+		}
 	}
 
 	// INPUT FUNCTIONS
@@ -122,7 +141,7 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
-		arw.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
+		arw.GetComponent<Arrow>().ID = this.gameObject.name;
 		rb.AddForce(firePoint.forward * baseArrowSpeed * chargeTime, ForceMode.Impulse);
 		Destroy(arw, 5f);
 	}

@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
             {
                 GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
                 Rigidbody rb = arrow.GetComponent<Rigidbody>();
-                arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
+                //arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
                 rb.AddForce(firePoint.forward * -minArrowSpeed * chargeTime, ForceMode.Impulse);
 
                 arrowPulled = false;
@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         {
             GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
             Rigidbody rb = arrow.GetComponent<Rigidbody>();
-            arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
+            //arrow.GetComponent<Arrow>().ID = this.gameObject.GetInstanceID();
             rb.AddForce(firePoint.forward * -minArrowSpeed * chargeTime, ForceMode.Impulse);
         }
     }
