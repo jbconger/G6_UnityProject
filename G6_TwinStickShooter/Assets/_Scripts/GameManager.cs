@@ -30,9 +30,9 @@ public class GameManager : MonoBehaviour
 	{
 		// Award win to the correct player
 		if ((go.name.Equals("Player1")))
-			p1Score++;
-		else
 			p2Score++;
+		else
+			p1Score++;
 
 		// show win message
 
