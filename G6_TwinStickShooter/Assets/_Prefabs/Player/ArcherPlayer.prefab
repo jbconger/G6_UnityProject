@@ -48,8 +48,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113402775102594052}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6af8f8e88e31b849980b3207489ea6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
   rbody: {fileID: 5966338424298666368}
   arrow: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38, type: 3}
   firePoint: {fileID: 699853118128147818}
@@ -297,10 +298,6 @@ MonoBehaviour:
     m_ActionId: 0a9f35d4-771a-4a0c-b3d8-d5af11f64248
     m_ActionName: Gameplay/DodgeRoll[/XInputControllerWindows/leftTrigger,/XInputControllerWindows/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 91f06cb7-0caf-4265-9ce0-ab3958958492
-    m_ActionName: Gameplay/Pause[/XInputControllerWindows/start,/XInputControllerWindows/start]
-  - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 476170574062391863}
         m_MethodName: PullArrow
@@ -323,6 +320,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: bd769f4b-bd6c-47cf-987d-98413686fa14
     m_ActionName: UI/Select[/XInputControllerWindows/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e9b75867-c4b8-452b-9647-6d8b9f9328cf
+    m_ActionName: UI/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3997ddfd-9c99-4a76-93fe-43b9728f55a7
+    m_ActionName: UI/Cancel
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: d3f7c1da-3f33-41d8-a77b-a4c3a544e3ad
