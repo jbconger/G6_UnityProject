@@ -1140,12 +1140,12 @@ GameObject:
   - component: {fileID: 314134326}
   - component: {fileID: 314134325}
   m_Layer: 5
-  m_Name: RoundWinScreen
+  m_Name: RoundOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &314134324
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1767,7 +1767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &446941350
 RectTransform:
   m_ObjectHideFlags: 0
