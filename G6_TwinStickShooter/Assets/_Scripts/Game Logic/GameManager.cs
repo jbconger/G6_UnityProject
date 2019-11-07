@@ -14,8 +14,9 @@ public class GameManager : MonoBehaviour
 	public Transform p2Spawn;
 	private int p2Score;
 
-	public GameObject winMessage;
+	public GameObject roundOverUI;
 
+	public int pointsToWin = 3;
 	public float roundStartDelay = 2f;
 
 	private void Awake()
@@ -36,37 +37,45 @@ public class GameManager : MonoBehaviour
 
 		// show win message
 
-		if (p1Score >= 2 || p2Score >= 2)
+		if (p1Score >= pointsToWin || p2Score >= pointsToWin)
 		{
 			// end game
-			//GameOver();
+			GameOver();
 		}
 		else
 		{
 			//Time.timeScale = 0f;
 			// Reset positions
-			//Respawn();
+			Invoke("Respawn", roundStartDelay);
 		}
 
-		Invoke("Respawn", roundStartDelay);
+		//Invoke("Respawn", roundStartDelay);
 
 	}
 
 	void Respawn()
 	{
-		Debug.Log("We made it!");
+		Debug.Log("Respawning");
 		// destroy all arrows
-		
-		// disable win message
 
 		p1.transform.position = p1Spawn.position;
 		p2.transform.position = p2Spawn.position;
 		
-		//Time.timeScale = 1f;
+		Time.timeScale = 1f;
+	}
+
+	public void PlayAgain()
+	{
+		p1Score = 0;
+		p2Score = 0;
+		roundOverUI.SetActive(false);
+		Respawn();
 	}
 
 	void GameOver()
 	{
-
+		Debug.Log("GameOver");
+		roundOverUI.SetActive(true);
+		Time.timeScale = 0f;
 	}
 }
