@@ -2,10 +2,8 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class LevelUIManager : MonoBehaviour
 {
-	public static GameManager instance = null;
-
 	public GameObject p1;
 	public Transform p1Spawn;
 	private int p1Score;
@@ -17,15 +15,7 @@ public class GameManager : MonoBehaviour
 	public GameObject roundOverUI;
 
 	public int pointsToWin = 3;
-	public float roundStartDelay = 2f;
-
-	private void Awake()
-	{
-		if (instance == null)
-			instance = this;
-		else if (instance != this)
-			Destroy(gameObject);
-	}
+	public float respawnDelay = 2f;
 
 	public void RoundOver(Object go)
 	{
@@ -44,19 +34,24 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
-			//Time.timeScale = 0f;
+
 			// Reset positions
-			Invoke("Respawn", roundStartDelay);
+			//Invoke("Respawn", respawnDelay);
+			Respawn();
 		}
 
-		//Invoke("Respawn", roundStartDelay);
+		//Invoke("Respawn", respawnDelay);
 
 	}
 
 	void Respawn()
 	{
 		Debug.Log("Respawning");
+		
 		// destroy all arrows
+		GameObject[] arrowArray = GameObject.FindGameObjectsWithTag("Arrow");
+		foreach (GameObject arr in arrowArray)
+			Destroy(arr);
 
 		p1.transform.position = p1Spawn.position;
 		p2.transform.position = p2Spawn.position;

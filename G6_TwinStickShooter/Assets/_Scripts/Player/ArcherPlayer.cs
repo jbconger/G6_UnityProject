@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class ArcherPlayer : MonoBehaviour
 {
-	public GameManager gm;
+	public LevelUIManager levelManager;
 	public Rigidbody rbody;
 	public GameObject arrow;
 	public Transform firePoint;
@@ -26,7 +26,6 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		if (isFallen)
 		{
-			Debug.Log("You dead!");
 			transform.position = new Vector3(0, 1.5f, 5);
 			isFallen = false;
 		}
@@ -60,7 +59,7 @@ public class ArcherPlayer : MonoBehaviour
 			// induce ragdoll physics
 
 			// show win message
-			gm.SendMessage("RoundOver", this);
+			levelManager.SendMessage("RoundOver", this);
 		}
 	}
 
