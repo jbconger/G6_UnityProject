@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class ArcherPlayer : MonoBehaviour
 {
 	public LevelUIManager levelManager;
+	public Animator anim;
 	public Rigidbody rbody;
 	public GameObject arrow;
 	public Transform firePoint;
@@ -19,6 +20,14 @@ public class ArcherPlayer : MonoBehaviour
 	
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
+
+	// animator fields
+	public Transform cam;
+	Vector3 camForward;
+	Vector3 move;
+	Vector3 moveInput;
+	float forwardAmount;
+	float turnAmount;
 
 	// UPDATE FUNCTIONS
 
@@ -68,6 +77,30 @@ public class ArcherPlayer : MonoBehaviour
 	public void Move(InputAction.CallbackContext ctx)
 	{
 		i_move = ctx.ReadValue<Vector2>();
+
+		// Moving animations
+		float horizontal = Input.GetAxis("Horizontal");
+		float vertical = Input.GetAxis("Vertical");
+
+		if (cam != null)
+		{
+			camForward = Vector3.Scale(cam.up, new Vector3(1, 0, 1)).normalized;
+			move = vertical * camForward + horizontal * cam.right;
+		}
+		else
+		{
+			move = vertical * Vector3.forward + horizontal * Vector3.right;
+		}
+
+		if (move.magnitude > 1)
+		{
+			move.Normalize();
+		}
+
+		AnimMove(move);
+
+
+		Vector3 movement = new Vector3(horizontal, 0, vertical);
 	}
 
 	public void Look(InputAction.CallbackContext ctx)
@@ -143,5 +176,65 @@ public class ArcherPlayer : MonoBehaviour
 		arw.GetComponent<Arrow>().ID = this.gameObject.name;
 		rb.AddForce(firePoint.forward * baseArrowSpeed * chargeTime, ForceMode.Impulse);
 		Destroy(arw, 5f);
+	}
+
+	// ANIMATOR FUNCTIONS
+
+	public void AnimMove(Vector3 move)
+	{
+		if (move.magnitude > 1)
+		{
+			move.Normalize();
+		}
+
+		this.moveInput = move;
+
+		ConvertMoveInput();
+		UpdateAnimator();
+
+	}
+
+	public void ConvertMoveInput()
+	{
+		Vector3 localMove = transform.InverseTransformDirection(moveInput);
+		turnAmount = localMove.x;
+
+		forwardAmount = localMove.z;
+	}
+
+	public void UpdateAnimator()
+	{
+		anim.SetFloat("Forward", forwardAmount, 0.1f, Time.deltaTime);
+		anim.SetFloat("Turn", turnAmount, 0.1f, Time.deltaTime);
+
+		//Aimming is character moving 
+		if (anim.GetFloat("Forward") > -0.5 && anim.GetFloat("Forward") < .5)
+		{
+			if (anim.GetFloat("Turn") > -0.5 && anim.GetFloat("Turn") < .5)
+			{
+				// Character is not moving
+				anim.SetFloat("Moving", 0);
+			}
+		}
+
+		//Character is moving
+		anim.SetFloat("Moving", 1);
+
+	}
+
+	//Puts the animator on to the player
+	public void SetupAnimator()
+	{
+		anim = GetComponent<Animator>();
+
+		foreach (var childAnimator in GetComponentsInChildren<Animator>())
+		{
+			if (childAnimator != anim)
+			{
+				anim.avatar = childAnimator.avatar;
+				Destroy(childAnimator);
+				break;
+			}
+		}
 	}
 }
