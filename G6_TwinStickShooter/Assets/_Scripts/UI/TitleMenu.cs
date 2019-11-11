@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleMenu : MonoBehaviour
 {
-	public GameObject titleUI;
-
 	PlayerControls controls;
 
 	private void Awake()
@@ -14,21 +12,10 @@ public class TitleMenu : MonoBehaviour
 		controls = new PlayerControls();
 	}
 
-	// Start is called before the first frame update
-	void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+	// Title screen functions
 	public void PlayGame()
 	{
-		SceneManager.LoadScene("Wind1");
+		SceneManager.LoadScene("ReadyLevelSelect");
 	}
 
 	public void QuitGame()
@@ -36,6 +23,11 @@ public class TitleMenu : MonoBehaviour
 		Debug.Log("Quit");
 		Application.Quit();
 	}
+
+	// Level selection functions
+	public void Wind1()	{ SceneManager.LoadScene("Wind1"); }
+	public void Wind2()	{ SceneManager.LoadScene("Wind2"); }
+	public void Wind3()	{ SceneManager.LoadScene("Wind3"); }
 
 	// other items
 	private void OnEnable() { controls.Enable(); }
