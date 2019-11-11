@@ -34,14 +34,10 @@ public class LevelUIManager : MonoBehaviour
 		}
 		else
 		{
-
 			// Reset positions
 			//Invoke("Respawn", respawnDelay);
 			Respawn();
 		}
-
-		//Invoke("Respawn", respawnDelay);
-
 	}
 
 	void Respawn()

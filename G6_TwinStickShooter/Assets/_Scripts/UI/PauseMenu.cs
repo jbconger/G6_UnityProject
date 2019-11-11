@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToLevelSelect()
     {
-		SceneManager.LoadScene("LevelSelect");
+		SceneManager.LoadScene("ReadyLevelSelect");
         // TODO: Will need to find the logic to restart a match rather than restart the entire application.
         // Application.LoadLevel(0); <--This looks correct, but just needs the right scene number, however will it still have the players loaded in?
     }
