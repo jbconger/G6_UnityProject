@@ -7,6 +7,7 @@ public class ArcherPlayer : MonoBehaviour
 	public Rigidbody rbody;
 	public GameObject arrow;
 	public Transform firePoint;
+	public Transform respawn;
 
 	public float moveSpeed = 5f; //player move speed
 	public float baseArrowSpeed = 20f; //arrow speed
@@ -26,7 +27,7 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		if (isFallen)
 		{
-			transform.position = new Vector3(0, 1.5f, 5);
+			transform.position = respawn.position;
 			isFallen = false;
 		}
 

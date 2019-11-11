@@ -1443,6 +1443,11 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 476170574062391863, guid: 8544b7e8c37d6634ab38930aee0ff0ec,
+        type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 2144384147}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8544b7e8c37d6634ab38930aee0ff0ec, type: 3}
 --- !u!1 &505760335 stripped
@@ -1922,6 +1927,11 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 476170574062391863, guid: 8544b7e8c37d6634ab38930aee0ff0ec,
+        type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 358549752}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8544b7e8c37d6634ab38930aee0ff0ec, type: 3}
 --- !u!1 &695713249 stripped
