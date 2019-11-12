@@ -4,11 +4,13 @@ using UnityEngine.InputSystem;
 public class ArcherPlayer : MonoBehaviour
 {
 	public LevelUIManager levelManager;
-	public Animator anim;
+	Animator anim;
 	public Rigidbody rbody;
 	public GameObject arrow;
 	public Transform firePoint;
 	public Transform respawn;
+
+	public float animMultiplier = 2f;
 
 	public float moveSpeed = 5f; //player move speed
 	public float baseArrowSpeed = 20f; //arrow speed
@@ -23,12 +25,20 @@ public class ArcherPlayer : MonoBehaviour
 	private Vector2 i_look; //rotation vector
 
 	// animator fields
-	public Transform cam;
+	Transform cam;
 	Vector3 camForward;
 	Vector3 move;
 	Vector3 moveInput;
 	float forwardAmount;
 	float turnAmount;
+
+	// START/AWAKE
+
+	private void Start()
+	{
+		SetupAnimator();
+		cam = Camera.main.transform;
+	}
 
 	// UPDATE FUNCTIONS
 
@@ -63,6 +73,9 @@ public class ArcherPlayer : MonoBehaviour
 
 		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
 		{
+			// play death animation
+			anim.SetFloat("Death", 1);
+
 			// stop arrow
 			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
@@ -80,8 +93,8 @@ public class ArcherPlayer : MonoBehaviour
 		i_move = ctx.ReadValue<Vector2>();
 
 		// Moving animations
-		float horizontal = Input.GetAxis("Horizontal");
-		float vertical = Input.GetAxis("Vertical");
+		float horizontal = i_move.x * animMultiplier;
+		float vertical = i_move.y * animMultiplier;
 
 		if (cam != null)
 		{
@@ -97,11 +110,14 @@ public class ArcherPlayer : MonoBehaviour
 		{
 			move.Normalize();
 		}
+		
+		if (i_move.sqrMagnitude < 0.5)
+		{
+			move = Vector3.zero;
+			//movement = Vector3.zero;
+		}
 
 		AnimMove(move);
-
-
-		Vector3 movement = new Vector3(horizontal, 0, vertical);
 	}
 
 	public void Look(InputAction.CallbackContext ctx)
@@ -147,11 +163,17 @@ public class ArcherPlayer : MonoBehaviour
 				{
 					arrowPulled = true;
 					chargeTime = 1.0f;
+
+					// animation
+					anim.SetFloat("Aim", 1);
 				}
 				break;
 			
 			case InputActionPhase.Canceled:
 				arrowPulled = false;
+
+				// animation
+				anim.SetFloat("Aim", 0);
 				break;
 		}
 	}
@@ -177,6 +199,9 @@ public class ArcherPlayer : MonoBehaviour
 		arw.GetComponent<Arrow>().ID = this.gameObject.name;
 		rb.AddForce(firePoint.forward * baseArrowSpeed * chargeTime, ForceMode.Impulse);
 		Destroy(arw, 5f);
+		
+		// animation
+		anim.SetFloat("Aim", 0);
 	}
 
 	// ANIMATOR FUNCTIONS
@@ -214,13 +239,14 @@ public class ArcherPlayer : MonoBehaviour
 			if (anim.GetFloat("Turn") > -0.5 && anim.GetFloat("Turn") < .5)
 			{
 				// Character is not moving
+				Debug.Log(move);
 				anim.SetFloat("Moving", 0);
+				return;
 			}
 		}
 
 		//Character is moving
 		anim.SetFloat("Moving", 1);
-
 	}
 
 	//Puts the animator on to the player
