@@ -82,7 +82,9 @@ public class ArcherPlayer : MonoBehaviour
 			// induce ragdoll physics
 
 			// show win message
-			levelManager.SendMessage("RoundOver", this);
+			//levelManager.SendMessage("RoundOver", this);
+			//levelManager.RoundOver(this);
+			Invoke("RespawnReset", 1.5f);
 		}
 	}
 
@@ -263,5 +265,11 @@ public class ArcherPlayer : MonoBehaviour
 				break;
 			}
 		}
+	}
+
+	public void RespawnReset()
+	{
+		anim.SetFloat("Death", 0f);
+		levelManager.RoundOver(this);
 	}
 }

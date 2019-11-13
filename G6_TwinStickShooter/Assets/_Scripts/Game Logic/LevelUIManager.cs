@@ -49,6 +49,9 @@ public class LevelUIManager : MonoBehaviour
 		foreach (GameObject arr in arrowArray)
 			Destroy(arr);
 
+		p1.GetComponent<ArcherPlayer>().RespawnReset();
+		p2.GetComponent<ArcherPlayer>().RespawnReset();
+
 		p1.transform.position = p1Spawn.position;
 		p2.transform.position = p2Spawn.position;
 		
