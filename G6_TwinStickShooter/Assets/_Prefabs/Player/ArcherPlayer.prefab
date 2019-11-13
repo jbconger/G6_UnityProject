@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  anim: {fileID: 27064746570087133}
   rbody: {fileID: 5966338424298666368}
+  cc: {fileID: 7534881407948722352}
   arrow: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38, type: 3}
   firePoint: {fileID: 699853118128147818}
   respawn: {fileID: 0}
