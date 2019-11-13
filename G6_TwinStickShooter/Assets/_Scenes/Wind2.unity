@@ -1182,7 +1182,7 @@ MonoBehaviour:
   - {fileID: 695713257}
   offset: {x: 0, y: 24, z: -12}
   smoothTime: 1
-  minZoom: 24
+  minZoom: 20
   maxZoom: 8
   zoomLimiter: 2
 --- !u!114 &702982409

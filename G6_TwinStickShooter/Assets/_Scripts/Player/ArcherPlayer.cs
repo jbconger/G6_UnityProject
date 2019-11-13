@@ -279,7 +279,7 @@ public class ArcherPlayer : MonoBehaviour
 
 	public void RespawnReset()
 	{
-		anim.SetFloat("Death", 0f);
+		anim.SetFloat("Death", 0);
 		anim.SetFloat("Forward", 1f);
 		cc.enabled = true;
 		this.GetComponent<CustomGravity>().enabled = true;
