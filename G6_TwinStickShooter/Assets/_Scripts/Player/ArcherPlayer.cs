@@ -6,6 +6,7 @@ public class ArcherPlayer : MonoBehaviour
 	public LevelUIManager levelManager;
 	Animator anim;
 	public Rigidbody rbody;
+	public CapsuleCollider cc;
 	public GameObject arrow;
 	public Transform firePoint;
 	public Transform respawn;
@@ -20,6 +21,7 @@ public class ArcherPlayer : MonoBehaviour
 	private bool arrowNotched = false;
 	private bool arrowPulled = false;
 	private float chargeTime;
+	private bool isDead;
 	
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
@@ -38,6 +40,7 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		SetupAnimator();
 		cam = Camera.main.transform;
+		isDead = false;
 	}
 
 	// UPDATE FUNCTIONS
@@ -61,8 +64,11 @@ public class ArcherPlayer : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Moving();
-		Looking();
+		if (!isDead)
+		{
+			Moving();
+			Looking();
+		}
 	}
 
 	// COLLISION HANDLERS
@@ -74,15 +80,22 @@ public class ArcherPlayer : MonoBehaviour
 		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
 		{
 			// play death animation
-			anim.SetFloat("Death", 1);
+			anim.SetFloat("Death", 1f);
 
 			// stop arrow
-			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			Destroy(coll);
+			//coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 			// induce ragdoll physics
 
 			// show win message
-			levelManager.SendMessage("RoundOver", this);
+			//levelManager.SendMessage("RoundOver", this);
+			//levelManager.RoundOver(this);
+
+			isDead = true;
+			cc.enabled = false;
+			this.GetComponent<CustomGravity>().enabled = false;
+			Invoke("RespawnReset", 2.5f);
 		}
 	}
 
@@ -239,7 +252,6 @@ public class ArcherPlayer : MonoBehaviour
 			if (anim.GetFloat("Turn") > -0.5 && anim.GetFloat("Turn") < .5)
 			{
 				// Character is not moving
-				Debug.Log(move);
 				anim.SetFloat("Moving", 0);
 				return;
 			}
@@ -263,5 +275,15 @@ public class ArcherPlayer : MonoBehaviour
 				break;
 			}
 		}
+	}
+
+	public void RespawnReset()
+	{
+		anim.SetFloat("Death", 0f);
+		anim.SetFloat("Forward", 1f);
+		cc.enabled = true;
+		this.GetComponent<CustomGravity>().enabled = true;
+		isDead = false;
+		levelManager.RoundOver(this);
 	}
 }

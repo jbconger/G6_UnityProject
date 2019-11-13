@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8113402775102594052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1431878407995382142}
@@ -221,8 +221,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelManager: {fileID: 0}
-  anim: {fileID: 27064746570087133}
   rbody: {fileID: 5966338424298666368}
+  cc: {fileID: 7534881407948722352}
   arrow: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38, type: 3}
   firePoint: {fileID: 699853118128147818}
   respawn: {fileID: 0}
