@@ -25,12 +25,12 @@ public class Arrow : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		GameObject coll = collision.gameObject;
-		
+	
 		if (coll.tag != "Player")
 		{
 			cc.enabled = false;
 			rb.velocity = Vector3.zero;
-			rb.useGravity = true;
+			//rb.useGravity = true;
 			deadArrow = true;
 			Destroy(this.gameObject, 2f);
 		}

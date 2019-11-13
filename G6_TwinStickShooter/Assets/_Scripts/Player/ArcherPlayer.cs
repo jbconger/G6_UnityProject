@@ -80,10 +80,11 @@ public class ArcherPlayer : MonoBehaviour
 		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
 		{
 			// play death animation
-			anim.SetFloat("Death", 1);
+			anim.SetFloat("Death", 1f);
 
 			// stop arrow
-			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			Destroy(coll);
+			//coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 			// induce ragdoll physics
 
