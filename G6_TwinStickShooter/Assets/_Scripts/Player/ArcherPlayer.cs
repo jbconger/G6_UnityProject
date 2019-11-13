@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class ArcherPlayer : MonoBehaviour
 {
 	public LevelUIManager levelManager;
+	public AudioSource deathSound;
 	Animator anim;
 	public Rigidbody rbody;
 	public CapsuleCollider cc;
@@ -81,6 +82,7 @@ public class ArcherPlayer : MonoBehaviour
 		{
 			// play death animation
 			anim.SetFloat("Death", 1f);
+			deathSound.Play();
 
 			// stop arrow
 			Destroy(coll);
