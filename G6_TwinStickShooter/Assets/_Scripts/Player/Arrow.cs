@@ -6,9 +6,6 @@ public class Arrow : MonoBehaviour
 	public Rigidbody rb;
 	public BoxCollider cc;
 
-	// screen bounds
-	public float vertLimit, horizLimit;
-
 	private bool deadArrow = false;
 
 	// property for arrow ID
@@ -22,10 +19,6 @@ public class Arrow : MonoBehaviour
 		{
 			transform.rotation = Quaternion.LookRotation(rotateVector, Vector3.up);
 		}
-
-		// destroy arrow if it exits play area
-		//if (Math.Abs(transform.position.z) > vertLimit || Math.Abs(transform.position.x) > horizLimit)
-		//	Destroy(this.gameObject);
     }
 
 	// called when arrow collides with another object
@@ -33,19 +26,13 @@ public class Arrow : MonoBehaviour
 	{
 		GameObject coll = collision.gameObject;
 		
-		//if (coll.tag == "Player" && coll.GetInstanceID() != ID && !deadArrow)
-		//{
-		//	Destroy(coll);
-		//	Destroy(this.gameObject);
-  //      }
-		
-		if (coll.tag == "Terrain")
+		if (coll.tag != "Player")
 		{
 			cc.enabled = false;
 			rb.velocity = Vector3.zero;
 			rb.useGravity = true;
 			deadArrow = true;
-			Destroy(this.gameObject, 3f);
+			Destroy(this.gameObject, 2f);
 		}
 	}
 
