@@ -630,7 +630,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2544585207737823491}
+      - m_Target: {fileID: 2544585207737823517}
         m_MethodName: GoToLevelSelect
         m_Mode: 1
         m_Arguments:
@@ -1144,8 +1144,13 @@ MonoBehaviour:
   p2: {fileID: 0}
   p2Spawn: {fileID: 0}
   roundOverUI: {fileID: 2544585207084306590}
+  pauseUI: {fileID: 2544585206948681480}
+  es: {fileID: 2544585207737823490}
   pointsToWin: 3
   respawnDelay: 2
+  firstSelection:
+  - {fileID: 2544585208171398635}
+  - {fileID: 2544585207947675164}
 --- !u!1 &2544585207779865312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,9 +1214,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Quit
-
-'
+  m_text: Title Screen
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 711ef77372d582341bb8845cbbfe89ed, type: 2}
   m_sharedMaterial: {fileID: 7637880936447368315, guid: 711ef77372d582341bb8845cbbfe89ed,
@@ -1281,10 +1284,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2544585207779865314}
-    characterCount: 5
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
-    wordCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1863,8 +1866,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2544585207737823491}
-        m_MethodName: QuitToMM
+      - m_Target: {fileID: 2544585207737823517}
+        m_MethodName: QuitToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2277,7 +2280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2544585207737823491}
+      - m_Target: {fileID: 2544585207737823517}
         m_MethodName: UnPause
         m_Mode: 1
         m_Arguments:

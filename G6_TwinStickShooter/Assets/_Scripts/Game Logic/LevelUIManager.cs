@@ -1,5 +1,7 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class LevelUIManager : MonoBehaviour
@@ -13,9 +15,66 @@ public class LevelUIManager : MonoBehaviour
 	private int p2Score;
 
 	public GameObject roundOverUI;
+	public GameObject pauseUI;
+	public EventSystem es;
 
 	public int pointsToWin = 3;
 	public float respawnDelay = 2f;
+
+	public List<GameObject> firstSelection;
+	PlayerControls controls;
+	private bool isPaused;
+
+	private void Awake()
+	{
+		controls = new PlayerControls();
+
+		controls.UI.Pause.started += OnPause;
+	}
+
+	// Start is called before the first frame update
+	void Start()
+	{
+		pauseUI.SetActive(false);
+		isPaused = false;
+	}
+
+	// PAUSE FUNCTIONS
+
+	public void OnPause(InputAction.CallbackContext ctx)
+	{
+		if (isPaused)
+			UnPause();
+		else
+			Pause();
+	}
+
+	public void Pause()
+	{
+		es.firstSelectedGameObject = firstSelection[0];
+		isPaused = true;
+		pauseUI.SetActive(true);
+		Time.timeScale = 0f;
+	}
+
+	public void UnPause()
+	{
+		isPaused = false;
+		pauseUI.SetActive(false);
+		Time.timeScale = 1f;
+	}
+
+	public void QuitToTitle()
+	{
+		SceneManager.LoadScene(0);
+	}
+
+	public void GoToLevelSelect()
+	{
+		SceneManager.LoadScene("ReadyLevelSelect");
+	}
+
+	// THE REST OF THE FUNCTIONS
 
 	public void RoundOver(Object go)
 	{
@@ -66,7 +125,12 @@ public class LevelUIManager : MonoBehaviour
 	void GameOver()
 	{
 		Debug.Log("GameOver");
+		es.firstSelectedGameObject = firstSelection[1];
 		roundOverUI.SetActive(true);
 		Time.timeScale = 0f;
 	}
+
+	// other items
+	private void OnEnable() { controls.Enable(); }
+	private void OnDisable() { controls.Disable(); }
 }

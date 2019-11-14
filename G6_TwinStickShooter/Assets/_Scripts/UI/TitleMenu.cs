@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class TitleMenu : MonoBehaviour
@@ -25,6 +23,7 @@ public class TitleMenu : MonoBehaviour
 	}
 
 	// Level selection functions
+	public void TitleScreen() { SceneManager.LoadScene("TitleScreen"); }
 	public void Wind1()	{ SceneManager.LoadScene("Wind1"); }
 	public void Wind2()	{ SceneManager.LoadScene("Wind2"); }
 	public void Wind3()	{ SceneManager.LoadScene("Wind3"); }
