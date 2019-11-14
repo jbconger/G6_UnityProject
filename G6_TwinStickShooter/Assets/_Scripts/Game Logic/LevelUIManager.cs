@@ -71,6 +71,7 @@ public class LevelUIManager : MonoBehaviour
 
 	public void GoToLevelSelect()
 	{
+		Time.timeScale = 1f;
 		SceneManager.LoadScene("ReadyLevelSelect");
 	}
 

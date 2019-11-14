@@ -612,6 +612,12 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1359367466}
+    - target: {fileID: 6194808514057540424, guid: 8544b7e8c37d6634ab38930aee0ff0ec,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2661202767744421317, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8544b7e8c37d6634ab38930aee0ff0ec, type: 3}
 --- !u!1 &505760335 stripped
@@ -826,6 +832,12 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1359367466}
+    - target: {fileID: 6194808514057540424, guid: 8544b7e8c37d6634ab38930aee0ff0ec,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 2661202767744421317, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8544b7e8c37d6634ab38930aee0ff0ec, type: 3}
 --- !u!1 &695713249 stripped
@@ -944,7 +956,7 @@ MonoBehaviour:
   offset: {x: 0, y: 24, z: -12}
   smoothTime: 1
   minZoom: 20
-  maxZoom: 8
+  maxZoom: 10
   zoomLimiter: 2
 --- !u!114 &702982409
 MonoBehaviour:
@@ -978,7 +990,8 @@ AudioSource:
   m_GameObject: {fileID: 702982404}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2661202767744421317, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 278a16b4bfdae6c4aac48c04973aeb56, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

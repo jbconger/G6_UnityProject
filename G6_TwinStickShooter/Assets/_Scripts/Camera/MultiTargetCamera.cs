@@ -30,7 +30,10 @@ public class MultiTargetCamera : MonoBehaviour
 
 		var bounds = EncapsulateBounds();
 		Move(bounds.center);
-		Zoom(bounds.size.x);
+		if (bounds.size.x > bounds.size.z)
+			Zoom(bounds.size.x);
+		else
+			Zoom(bounds.size.z);
     }
 
 	private void Move(Vector3 bounds)

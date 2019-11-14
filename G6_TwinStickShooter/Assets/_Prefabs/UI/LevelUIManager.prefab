@@ -118,8 +118,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2544585207737823491}
-        m_MethodName: QuitToMM
+      - m_Target: {fileID: 2544585207737823517}
+        m_MethodName: QuitToTitle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -178,7 +178,8 @@ AudioSource:
   m_GameObject: {fileID: 2544585206948681480}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6336041496254963993, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: a50b8d0bb387b1f4ca408d4a4af71872, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -352,7 +353,8 @@ AudioSource:
   m_GameObject: {fileID: 2544585207084306590}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6336041496254963993, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1941a4e8a8e9cce4a9ac3d0d08c7fb56, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
