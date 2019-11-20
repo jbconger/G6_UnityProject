@@ -86,13 +86,10 @@ public class ArcherPlayer : MonoBehaviour
 
 			// stop arrow
 			Destroy(coll);
-			//coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
 
 			// induce ragdoll physics
 
 			// show win message
-			//levelManager.SendMessage("RoundOver", this);
-			//levelManager.RoundOver(this);
 
 			isDead = true;
 			cc.enabled = false;
@@ -129,7 +126,6 @@ public class ArcherPlayer : MonoBehaviour
 		if (i_move.sqrMagnitude < 0.5)
 		{
 			move = Vector3.zero;
-			//movement = Vector3.zero;
 		}
 
 		AnimMove(move);

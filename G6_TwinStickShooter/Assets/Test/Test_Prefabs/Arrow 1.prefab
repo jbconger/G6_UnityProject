@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2224945935639994219}
-  - component: {fileID: 2224945935639994220}
   - component: {fileID: 2224945935639994221}
   - component: {fileID: 2224945935639994222}
   - component: {fileID: 2224945935639994223}
@@ -36,14 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &2224945935639994220
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2224945935639994193}
-  m_Mesh: {fileID: 0}
 --- !u!23 &2224945935639994221
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -109,7 +100,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &2224945935639994192
 MonoBehaviour:
@@ -124,8 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2224945935639994223}
-  vertLimit: 0
-  horizLimit: 0
+  cc: {fileID: 2224945935639994222}
 --- !u!1001 &5925059693690010439
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,11 +123,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2224945935639994219}
     m_Modifications:
-    - target: {fileID: 5399078703044046388, guid: a0a8df635a1a6de4ca51bb1323e38348,
-        type: 3}
-      propertyPath: m_Name
-      value: default
-      objectReference: {fileID: 0}
     - target: {fileID: 4959780131204590210, guid: a0a8df635a1a6de4ca51bb1323e38348,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,6 +192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399078703044046388, guid: a0a8df635a1a6de4ca51bb1323e38348,
+        type: 3}
+      propertyPath: m_Name
+      value: default
       objectReference: {fileID: 0}
     - target: {fileID: 4014624278919303841, guid: a0a8df635a1a6de4ca51bb1323e38348,
         type: 3}

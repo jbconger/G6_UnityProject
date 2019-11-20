@@ -211,6 +211,71 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""RSAim_RTShoot"",
+            ""id"": ""06ca8862-3fb7-4994-b3de-c1d7ac81d038"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""c670dce0-aef5-4848-b407-e8d2dc62ca33"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""27e56ea8-b664-4271-b683-c42da0a274ec"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""74d2faed-dde2-46b8-8493-5537ca3ce650"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d0b86b35-22b9-4b7d-8d58-ead90d46b016"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b79c39eb-45ed-4400-bc3c-a4b573ac0725"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bef2fef3-b6c9-4352-b68a-5d3405832b0c"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -228,6 +293,11 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_UI_Select = m_UI.FindAction("Select", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
+        // RSAim_RTShoot
+        m_RSAim_RTShoot = asset.FindActionMap("RSAim_RTShoot", throwIfNotFound: true);
+        m_RSAim_RTShoot_Move = m_RSAim_RTShoot.FindAction("Move", throwIfNotFound: true);
+        m_RSAim_RTShoot_Look = m_RSAim_RTShoot.FindAction("Look", throwIfNotFound: true);
+        m_RSAim_RTShoot_Fire = m_RSAim_RTShoot.FindAction("Fire", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -395,6 +465,55 @@ public class PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // RSAim_RTShoot
+    private readonly InputActionMap m_RSAim_RTShoot;
+    private IRSAim_RTShootActions m_RSAim_RTShootActionsCallbackInterface;
+    private readonly InputAction m_RSAim_RTShoot_Move;
+    private readonly InputAction m_RSAim_RTShoot_Look;
+    private readonly InputAction m_RSAim_RTShoot_Fire;
+    public struct RSAim_RTShootActions
+    {
+        private PlayerControls m_Wrapper;
+        public RSAim_RTShootActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_RSAim_RTShoot_Move;
+        public InputAction @Look => m_Wrapper.m_RSAim_RTShoot_Look;
+        public InputAction @Fire => m_Wrapper.m_RSAim_RTShoot_Fire;
+        public InputActionMap Get() { return m_Wrapper.m_RSAim_RTShoot; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(RSAim_RTShootActions set) { return set.Get(); }
+        public void SetCallbacks(IRSAim_RTShootActions instance)
+        {
+            if (m_Wrapper.m_RSAim_RTShootActionsCallbackInterface != null)
+            {
+                Move.started -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnMove;
+                Move.performed -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnMove;
+                Move.canceled -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnMove;
+                Look.started -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnLook;
+                Look.performed -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnLook;
+                Look.canceled -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnLook;
+                Fire.started -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnFire;
+                Fire.performed -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnFire;
+                Fire.canceled -= m_Wrapper.m_RSAim_RTShootActionsCallbackInterface.OnFire;
+            }
+            m_Wrapper.m_RSAim_RTShootActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                Move.started += instance.OnMove;
+                Move.performed += instance.OnMove;
+                Move.canceled += instance.OnMove;
+                Look.started += instance.OnLook;
+                Look.performed += instance.OnLook;
+                Look.canceled += instance.OnLook;
+                Fire.started += instance.OnFire;
+                Fire.performed += instance.OnFire;
+                Fire.canceled += instance.OnFire;
+            }
+        }
+    }
+    public RSAim_RTShootActions @RSAim_RTShoot => new RSAim_RTShootActions(this);
     public interface IGameplayActions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -409,5 +528,11 @@ public class PlayerControls : IInputActionCollection, IDisposable
         void OnSelect(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+    }
+    public interface IRSAim_RTShootActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
     }
 }
