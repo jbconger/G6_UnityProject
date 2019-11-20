@@ -11,17 +11,18 @@ public class RSAim_RTShoot : MonoBehaviour
 	public float baseArrowSpeed = 20f;
 	public float maxCharge = 2f;
 	public float shotIntervalTime = 2f;
-	private float lastShotTime;
+	
 
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
 	private float chargeTime;
+	private float lastShotTime;
 
-    // Update is called once per frame
-    void FixedUpdate()
+	// Update is called once per frame
+	void FixedUpdate()
     {
-		Moving();
 		Looking();
+		Moving();
     }
 
 	// INPUT FUNCTIONS

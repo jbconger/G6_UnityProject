@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 4560485428131701294}
   - component: {fileID: 5615072625398699946}
   m_Layer: 0
-  m_Name: TestControlsPlayer
+  m_Name: RSAim_RTShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,6 +273,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 74d2faed-dde2-46b8-8493-5537ca3ce650
     m_ActionName: TestControls/Shoot[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: bcc74a0b-87f8-46ee-b6b8-d1ddbddf6c52
+    m_ActionName: RSAimShoot/Move[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5da3066e-9105-465f-b9fa-22f4ab3fced4
+    m_ActionName: RSAimShoot/Look[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c18dea9a-6d6f-4732-9847-c8b072210b4c
+    m_ActionName: RSAimShoot/Fire[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 06ca8862-3fb7-4994-b3de-c1d7ac81d038

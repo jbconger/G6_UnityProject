@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class RS_AimShoot : MonoBehaviour
+public class RSAimShoot : MonoBehaviour
 {
 	public Rigidbody rb;
 	public Transform firePoint;
@@ -14,12 +14,13 @@ public class RS_AimShoot : MonoBehaviour
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
 	private float chargeTime;
+	private float lastShotTime;
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		Moving();
 		Looking();
+		Moving();
 	}
 
 	// INPUT FUNCTIONS
@@ -42,6 +43,7 @@ public class RS_AimShoot : MonoBehaviour
 				break;
 
 			case InputActionPhase.Started:
+				chargeTime = Time.time;
 				break;
 
 			case InputActionPhase.Canceled:
@@ -61,16 +63,34 @@ public class RS_AimShoot : MonoBehaviour
 	void Looking()
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
-		if (!lookVector.Equals(Vector3.zero))
+		if (lookVector.sqrMagnitude > 0.8)
 			transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
 	}
 
 	void Firing()
 	{
+		lastShotTime = Time.time;
+
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
 		arw.GetComponent<Arrow>().ID = this.gameObject.name;
-		rb.AddForce(firePoint.forward * baseArrowSpeed * chargeTime, ForceMode.Impulse);
+
+		if (Time.time - chargeTime <= 0.2)
+		{
+			rb.AddForce(firePoint.forward * baseArrowSpeed * 0.5f, ForceMode.Impulse);
+
+		}
+		else if (Time.time - chargeTime <= maxCharge)
+		{
+			//rb.useGravity = false;
+			rb.AddForce(firePoint.forward * baseArrowSpeed * (Time.time - chargeTime + 0.5f), ForceMode.Impulse);
+		}
+		else
+		{
+			//rb.useGravity = true;
+			rb.AddForce(firePoint.forward * baseArrowSpeed * maxCharge, ForceMode.Impulse);
+		}
+
 		Destroy(arw, 5f);
 	}
 }
