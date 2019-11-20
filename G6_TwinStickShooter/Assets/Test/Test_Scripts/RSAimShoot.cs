@@ -10,11 +10,14 @@ public class RSAimShoot : MonoBehaviour
 	public float moveSpeed = 6f;
 	public float baseArrowSpeed = 20f;
 	public float maxCharge = 2f;
+	public float shotIntervalTime = 2f;
 
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
 	private float chargeTime;
 	private float lastShotTime;
+
+	private float smoothSpeed = 10f;
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -64,7 +67,8 @@ public class RSAimShoot : MonoBehaviour
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
 		if (lookVector.sqrMagnitude > 0.8)
-			transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
+			//transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
+			transform.rotation = Quaternion.LookRotation(-lookVector);
 	}
 
 	void Firing()

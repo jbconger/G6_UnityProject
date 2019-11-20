@@ -11,7 +11,6 @@ public class RSAim_RTShoot : MonoBehaviour
 	public float baseArrowSpeed = 20f;
 	public float maxCharge = 2f;
 	public float shotIntervalTime = 2f;
-	
 
 	private Vector2 i_move; //move vector
 	private Vector2 i_look; //rotation vector
@@ -67,7 +66,7 @@ public class RSAim_RTShoot : MonoBehaviour
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
 		if (lookVector.sqrMagnitude > 0.3)
-			transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
+			transform.rotation = Quaternion.LookRotation(-lookVector);
 	}
 	
 	void Firing()
