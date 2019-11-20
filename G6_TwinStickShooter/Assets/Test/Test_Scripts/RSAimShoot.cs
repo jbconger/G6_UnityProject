@@ -67,7 +67,6 @@ public class RSAimShoot : MonoBehaviour
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
 		if (lookVector.sqrMagnitude > 0.8)
-			//transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
 			transform.rotation = Quaternion.LookRotation(-lookVector);
 	}
 
