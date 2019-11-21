@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 5798219038892114531, guid: 41f40bba1a763dc45abe44d48fd8ba81,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5798219038892114536, guid: 41f40bba1a763dc45abe44d48fd8ba81,
         type: 3}
@@ -454,6 +454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RSAimShoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798219038892114531, guid: fcbb0ed788d71d24abe5446c662f80f2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5798219038892114536, guid: fcbb0ed788d71d24abe5446c662f80f2,
         type: 3}
