@@ -28,8 +28,6 @@ public class ArcherShooting : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 
-    // UPDATE FUNCTIONS
-
 	// INPUT HANDLERS
 
 	public void Fire(InputAction.CallbackContext ctx)

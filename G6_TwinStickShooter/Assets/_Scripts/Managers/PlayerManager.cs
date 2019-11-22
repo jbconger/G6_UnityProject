@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
 		m_Instance.GetComponentInChildren<SpriteRenderer>().color = m_PlayerColor;
 	}
 
-	// Used during the phases of the game where the player shouldn't be able to control their tank.
+	// disables player movement and shooting
 	public void DisablePlayer()
 	{
 		m_Movement.enabled = false;
@@ -42,7 +42,7 @@ public class PlayerManager : MonoBehaviour
 		m_GameUI.SetActive(false);
 	}
 
-	// Used during the phases of the game where the player should be able to control their tank.
+	// enables player movement and shooting
 	public void EnablePlayer()
 	{
 		m_Movement.enabled = true;
@@ -51,7 +51,7 @@ public class PlayerManager : MonoBehaviour
 		m_GameUI.SetActive(true);
 	}
 
-	// Used at the start of each round to put the tank into it's default state.
+	// Move players back to spawn points
 	public void Reset()
 	{
 		m_Instance.transform.position = m_SpawnPoint.position;
