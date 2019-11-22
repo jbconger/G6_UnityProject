@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class ArcherShooting : MonoBehaviour
@@ -7,6 +8,7 @@ public class ArcherShooting : MonoBehaviour
 	public GameObject arrow;
 	public Transform firePoint;
 	public AudioSource drawArrowSound;
+	public Slider chargeIndicator;
 
 	// PUBLIC FIELDS
 	[HideInInspector] public int playerNumber = 1;
@@ -63,7 +65,7 @@ public class ArcherShooting : MonoBehaviour
 
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
-		arw.GetComponent<Arrow>().ID = this.gameObject.name;
+		arw.GetComponent<Arrow>().ID = playerNumber;
 
 		if (Time.time - chargeTime <= 0.2)
 		{

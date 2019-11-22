@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	// REFERENCES
 	public MultiTargetCamera m_DynamicCamera;
 	public Text m_MessageText;
+	public MatchOverMenu matchOverUI;
 	public GameObject m_PlayerPrefab;
 	public PlayerManager[] m_Players;
 
@@ -32,6 +33,9 @@ public class GameManager : MonoBehaviour
 		m_EndWait = new WaitForSeconds(m_EndDelay);
 
 		SpawnPlayers();
+		SetupCamera();
+
+		StartCoroutine(GameLoop());
     }
 
 	// GAME LOOP FUNCTIONS
@@ -68,7 +72,7 @@ public class GameManager : MonoBehaviour
 
 		if (m_GameWinner != null)
 		{
-			
+			matchOverUI.MatchOver();
 		}
 		else
 		{
@@ -162,12 +166,14 @@ public class GameManager : MonoBehaviour
 		if (m_RoundWinner != null)
 			message = m_RoundWinner.m_ColoredPlayerText + " WINS!";
 
-		message += "\n\n\n\n";
+		message += "\n\n\n";
 
 		for (int i = 0; i < m_Players.Length; i++)
 		{
 			message += m_Players[i].m_ColoredPlayerText + ": " + m_Players[i].m_Wins;
+			message += "\n";
 		}
+
 
 		if (m_GameWinner != null)
 			message = m_GameWinner.m_ColoredPlayerText + " IS THE CHAMPION!";

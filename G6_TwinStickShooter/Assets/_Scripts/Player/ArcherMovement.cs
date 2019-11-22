@@ -67,8 +67,8 @@ public class ArcherMovement : MonoBehaviour
 	void OnCollisionEnter(Collision collision)
 	{
 		GameObject coll = collision.gameObject;
-
-		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
+		
+		if (coll.CompareTag("Arrow") && playerNumber != coll.GetComponent<Arrow>().ID)
 		{
 			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
 			Death();
@@ -198,7 +198,5 @@ public class ArcherMovement : MonoBehaviour
 		cc.enabled = true;
 		this.GetComponent<ArcherShooting>().enabled = true;
 		this.GetComponent<CustomGravity>().enabled = true;
-		
-		//levelManager.RoundOver(this);
 	}
 }

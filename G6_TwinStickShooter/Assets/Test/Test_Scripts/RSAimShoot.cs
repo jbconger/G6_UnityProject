@@ -17,7 +17,7 @@ public class RSAimShoot : MonoBehaviour
 	private float chargeTime;
 	private float lastShotTime;
 
-	private float smoothSpeed = 10f;
+	//private float smoothSpeed = 10f;
 
 	// Update is called once per frame
 	void FixedUpdate()
@@ -76,7 +76,7 @@ public class RSAimShoot : MonoBehaviour
 
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
-		arw.GetComponent<Arrow>().ID = this.gameObject.name;
+		arw.GetComponent<Arrow>().ID = this.GetInstanceID();
 
 		if (Time.time - chargeTime <= 0.2)
 		{

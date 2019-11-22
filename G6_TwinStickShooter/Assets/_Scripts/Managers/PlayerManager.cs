@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+[Serializable]
+public class PlayerManager
 {
 	// PLAYER INFORMATION
 	public Color m_PlayerColor;
@@ -13,14 +15,14 @@ public class PlayerManager : MonoBehaviour
 
 	private ArcherMovement m_Movement;
 	private ArcherShooting m_Shooting;
-	private GameObject m_GameUI;
+	//private GameObject m_GameUI;
 
 	public void Setup()
 	{
 		// establish component connections
 		m_Movement = m_Instance.GetComponent<ArcherMovement>();
 		m_Shooting = m_Instance.GetComponent<ArcherShooting>();
-		m_GameUI = m_Instance.GetComponentInChildren<Canvas>().gameObject;
+		//m_GameUI = m_Instance.GetComponentInChildren<Canvas>().gameObject;
 
 		// set player numbers
 		m_Movement.playerNumber = m_PlayerNumber;
@@ -39,7 +41,7 @@ public class PlayerManager : MonoBehaviour
 		m_Movement.enabled = false;
 		m_Shooting.enabled = false;
 
-		m_GameUI.SetActive(false);
+		//m_GameUI.SetActive(false);
 	}
 
 	// enables player movement and shooting
@@ -48,7 +50,7 @@ public class PlayerManager : MonoBehaviour
 		m_Movement.enabled = true;
 		m_Shooting.enabled = true;
 
-		m_GameUI.SetActive(true);
+		//m_GameUI.SetActive(true);
 	}
 
 	// Move players back to spawn points
@@ -57,7 +59,7 @@ public class PlayerManager : MonoBehaviour
 		m_Instance.transform.position = m_SpawnPoint.position;
 		m_Instance.transform.rotation = m_SpawnPoint.rotation;
 
-		m_Instance.SetActive(false);
-		m_Instance.SetActive(true);
+		//m_Instance.SetActive(false);
+		//m_Instance.SetActive(true);
 	}
 }

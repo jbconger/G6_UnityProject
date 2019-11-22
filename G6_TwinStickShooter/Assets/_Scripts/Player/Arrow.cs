@@ -8,7 +8,7 @@ public class Arrow : MonoBehaviour
 	private bool deadArrow = false;
 
 	// property for arrow ID
-	public string ID { get; set; }
+	public int ID { get; set; }
 
     // Update is called once per frame
     void Update()
