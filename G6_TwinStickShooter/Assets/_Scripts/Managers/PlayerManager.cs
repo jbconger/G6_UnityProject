@@ -13,7 +13,7 @@ public class PlayerManager
 	[HideInInspector] public GameObject m_Instance;
 	[HideInInspector] public int m_Wins;
 
-	private ArcherMovement m_Movement;
+	[HideInInspector] public ArcherMovement m_Movement;
 	private ArcherShooting m_Shooting;
 
 	public void Setup()
@@ -53,6 +53,7 @@ public class PlayerManager
 		m_Instance.transform.position = m_SpawnPoint.position;
 		m_Instance.transform.rotation = m_SpawnPoint.rotation;
 
+		m_Movement.RespawnReset();
 		//m_Instance.SetActive(false);
 		//m_Instance.SetActive(true);
 	}

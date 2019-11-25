@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator GameLoop()
 	{
-		yield return StartCoroutine(RoundStart());
+		//yield return StartCoroutine(RoundStart());
 
 		yield return StartCoroutine(RoundPlay());
 

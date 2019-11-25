@@ -13,8 +13,9 @@ public class ArcherMovement : MonoBehaviour
 	[HideInInspector] public int playerNumber = 1;
 	public float moveSpeed = 6f;
 
-	private bool isDead;
+	[HideInInspector] public bool isDead;
 
+	// PRIVATE FIELDS
 	private Vector2 i_move; // movement input
 	private Vector2 i_look; // rotation input
 
@@ -182,9 +183,9 @@ public class ArcherMovement : MonoBehaviour
 		isDead = true;
 		cc.enabled = false;
 		this.GetComponent<ArcherShooting>().enabled = false;
-		this.GetComponent<CustomGravity>().enabled = false;
+		//this.GetComponent<CustomGravity>().enabled = false;
 		
-		Invoke("RespawnReset", 2.5f);
+		//Invoke("RespawnReset", 2.5f);
 	}
 
 	public void RespawnReset()
@@ -197,6 +198,6 @@ public class ArcherMovement : MonoBehaviour
 		isDead = false;
 		cc.enabled = true;
 		this.GetComponent<ArcherShooting>().enabled = true;
-		this.GetComponent<CustomGravity>().enabled = true;
+		//this.GetComponent<CustomGravity>().enabled = true;
 	}
 }
