@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: -0.9}
+  m_AnchoredPosition: {x: 0, y: -0.8}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6762768849341122948
@@ -133,7 +133,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5290468843130591559
 GameObject:
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 146013512295986068}
   - component: {fileID: 1809039546263279012}
   m_Layer: 0
-  m_Name: Slider
+  m_Name: ChargeIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,8 +169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 6}
-  m_SizeDelta: {x: -2, y: 6}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -1, y: 6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809039546263279012
 MonoBehaviour:
@@ -215,10 +215,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 154740527262877638}
   m_HandleRect: {fileID: 0}
   m_Direction: 2
-  m_MinValue: 2
-  m_MaxValue: 10
+  m_MinValue: 10
+  m_MaxValue: 40
   m_WholeNumbers: 0
-  m_Value: 2
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -770,10 +770,11 @@ MonoBehaviour:
   arrow: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38, type: 3}
   firePoint: {fileID: 699853118128147818}
   drawArrowSound: {fileID: 4764955839365490031}
-  chargeIndicator: {fileID: 0}
+  chargeIndicator: {fileID: 1809039546263279012}
   playerNumber: 1
-  baseArrowSpeed: 20
-  chargeDuration: 2
+  minArrowSpeed: 10
+  maxArrowSpeed: 40
+  maxChargeTime: 1
   timeBetweenShots: 1
 --- !u!82 &4764955839365490031
 AudioSource:
@@ -1045,7 +1046,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f11f91b04e69da34eb83e909824f8d88, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

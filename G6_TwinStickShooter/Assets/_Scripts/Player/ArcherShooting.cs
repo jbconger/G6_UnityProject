@@ -12,13 +12,18 @@ public class ArcherShooting : MonoBehaviour
 
 	// PUBLIC FIELDS
 	[HideInInspector] public int playerNumber = 1;
-	public float baseArrowSpeed = 20f;
-	public float chargeDuration = 2f;
+	public float minArrowSpeed = 10f;
+	public float maxArrowSpeed = 40f;
+	public float maxChargeTime = 2f;
 	public float timeBetweenShots = 1f;
 
 	// PRIVATE FIELDS
+	private float chargeSpeed;
 	private float chargeTime;
 	private float lastShotTime;
+	private float currentCharge;
+
+	private bool arrowDrawn;
 
 	// ANIMATOR FIELDS
 	private Animator anim;
@@ -28,6 +33,27 @@ public class ArcherShooting : MonoBehaviour
     void Start()
     {
 		anim = GetComponent<Animator>();
+		chargeSpeed = (maxArrowSpeed - minArrowSpeed) / maxChargeTime;
+		arrowDrawn = false;
+	}
+
+	// UPDATE
+
+	void Update()
+	{
+		if (currentCharge >= maxArrowSpeed && arrowDrawn)
+		{
+			chargeIndicator.value = maxArrowSpeed;
+		}
+		else if (currentCharge < maxArrowSpeed && arrowDrawn)
+		{
+			currentCharge += chargeSpeed * Time.deltaTime;
+			chargeIndicator.value = currentCharge;
+		}
+		else
+		{
+			chargeIndicator.value = minArrowSpeed;
+		}
 	}
 
 	// INPUT HANDLERS
@@ -41,6 +67,7 @@ public class ArcherShooting : MonoBehaviour
 
 			case InputActionPhase.Started:
 				chargeTime = Time.time;
+				arrowDrawn = true;
 
 				// play sound
 				drawArrowSound.Play();
@@ -52,6 +79,8 @@ public class ArcherShooting : MonoBehaviour
 			case InputActionPhase.Canceled:
 				if (Time.time > lastShotTime + timeBetweenShots)
 					Firing();
+				
+				arrowDrawn = false;
 				
 				// animation
 				anim.SetFloat("Aim", 0);
@@ -66,22 +95,9 @@ public class ArcherShooting : MonoBehaviour
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
 		arw.GetComponent<Arrow>().ID = playerNumber;
+		rb.AddForce(firePoint.forward * currentCharge, ForceMode.Impulse);
 
-		if (Time.time - chargeTime <= 0.2)
-		{
-			rb.AddForce(firePoint.forward * baseArrowSpeed * 0.5f, ForceMode.Impulse);
-
-		}
-		else if (Time.time - chargeTime <= chargeDuration)
-		{
-			//rb.useGravity = false;
-			rb.AddForce(firePoint.forward * baseArrowSpeed * (Time.time - chargeTime + 0.5f), ForceMode.Impulse);
-		}
-		else
-		{
-			//rb.useGravity = true;
-			rb.AddForce(firePoint.forward * baseArrowSpeed * chargeDuration, ForceMode.Impulse);
-		}
+		currentCharge = minArrowSpeed;
 
 		Destroy(arw, 5f);
 	}
