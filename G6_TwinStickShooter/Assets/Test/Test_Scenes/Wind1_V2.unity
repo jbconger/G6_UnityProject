@@ -3089,12 +3089,14 @@ MonoBehaviour:
     m_ColoredPlayerText: 
     m_Instance: {fileID: 0}
     m_Wins: 0
+    m_Movement: {fileID: 0}
   - m_PlayerColor: {r: 0, g: 0.122285366, b: 1, a: 1}
     m_SpawnPoint: {fileID: 358549752}
     m_PlayerNumber: 0
     m_ColoredPlayerText: 
     m_Instance: {fileID: 0}
     m_Wins: 0
+    m_Movement: {fileID: 0}
 --- !u!4 &1454656261
 Transform:
   m_ObjectHideFlags: 0
@@ -4458,6 +4460,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288317233902135481, guid: fc6140e11ed3e9644aa6a49935c98abf,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 6288317235669534716, guid: fc6140e11ed3e9644aa6a49935c98abf,
         type: 3}

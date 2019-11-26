@@ -102,8 +102,6 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator RoundPlay()
 	{
-		//EnablePlayerControls();
-
 		m_MessageText.text = "";
 
 		while (!OnePlayerLeft())
@@ -114,8 +112,6 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator RoundEnd()
 	{
-		//DisablePlayerControls();
-
 		m_RoundWinner = null;
 
 		m_RoundWinner = GetRoundWinner();
@@ -173,7 +169,7 @@ public class GameManager : MonoBehaviour
 		if (m_RoundWinner != null)
 			message = m_RoundWinner.m_ColoredPlayerText + " WINS!";
 
-		message += "\n\n\n";
+		message += "\n\n";
 
 		for (int i = 0; i < m_Players.Length; i++)
 		{

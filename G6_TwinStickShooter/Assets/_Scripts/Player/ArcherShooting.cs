@@ -24,6 +24,7 @@ public class ArcherShooting : MonoBehaviour
 	private float currentCharge;
 
 	private bool arrowDrawn;
+	private bool isDead;
 
 	// ANIMATOR FIELDS
 	private Animator anim;
@@ -46,6 +47,7 @@ public class ArcherShooting : MonoBehaviour
 
 		chargeSpeed = (maxArrowSpeed - minArrowSpeed) / maxChargeTime;
 		arrowDrawn = false;
+		isDead = false;
 	}
 
 	// UPDATE
@@ -67,10 +69,26 @@ public class ArcherShooting : MonoBehaviour
 		}
 	}
 
+	// COLLISION HANDLERS
+
+	void OnCollisionEnter(Collision collision)
+	{
+		GameObject coll = collision.gameObject;
+
+		if (coll.CompareTag("Arrow") && playerNumber != coll.GetComponent<Arrow>().ID)
+		{
+			coll.GetComponent<Rigidbody>().velocity = Vector3.zero;
+			isDead = true;
+		}
+	}
+
 	// INPUT HANDLERS
 
 	public void Fire(InputAction.CallbackContext ctx)
 	{
+		if (isDead)
+			return;
+
 		switch (ctx.phase)
 		{
 			case InputActionPhase.Performed:
@@ -111,5 +129,12 @@ public class ArcherShooting : MonoBehaviour
 		currentCharge = minArrowSpeed;
 
 		Destroy(arw, 5f);
+	}
+
+	// OTHER FUNCTIONS
+
+	public void RespawnReset()
+	{
+		isDead = false;
 	}
 }

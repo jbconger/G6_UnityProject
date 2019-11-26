@@ -182,9 +182,6 @@ public class ArcherMovement : MonoBehaviour
 		// disable dead player
 		isDead = true;
 		cc.enabled = false;
-		this.GetComponent<PlayerInput>().currentActionMap.Disable();
-		
-		//Invoke("RespawnReset", 2.5f);
 	}
 
 	public void RespawnReset()

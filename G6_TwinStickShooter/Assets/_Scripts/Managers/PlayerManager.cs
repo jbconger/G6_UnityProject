@@ -53,6 +53,7 @@ public class PlayerManager
 	public void Reset()
 	{
 		m_Movement.RespawnReset();
+		m_Shooting.RespawnReset();
 
 		m_Instance.transform.position = m_SpawnPoint.position;
 		m_Instance.transform.rotation = m_SpawnPoint.rotation;
