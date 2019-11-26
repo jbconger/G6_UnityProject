@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public class PlayerManager
@@ -36,8 +37,9 @@ public class PlayerManager
 	// disables player movement and shooting
 	public void DisablePlayer()
 	{
-		m_Movement.enabled = false;
-		m_Shooting.enabled = false;
+		m_Instance.GetComponent<PlayerInput>().enabled = false;
+		//m_Movement.enabled = false;
+		//m_Shooting.enabled = false;
 	}
 
 	// enables player movement and shooting
@@ -50,10 +52,11 @@ public class PlayerManager
 	// Move players back to spawn points
 	public void Reset()
 	{
+		m_Movement.RespawnReset();
+
 		m_Instance.transform.position = m_SpawnPoint.position;
 		m_Instance.transform.rotation = m_SpawnPoint.rotation;
 
-		m_Movement.RespawnReset();
 		//m_Instance.SetActive(false);
 		//m_Instance.SetActive(true);
 	}

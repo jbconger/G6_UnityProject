@@ -182,8 +182,7 @@ public class ArcherMovement : MonoBehaviour
 		// disable dead player
 		isDead = true;
 		cc.enabled = false;
-		this.GetComponent<ArcherShooting>().enabled = false;
-		//this.GetComponent<CustomGravity>().enabled = false;
+		this.GetComponent<PlayerInput>().currentActionMap.Disable();
 		
 		//Invoke("RespawnReset", 2.5f);
 	}
@@ -191,13 +190,11 @@ public class ArcherMovement : MonoBehaviour
 	public void RespawnReset()
 	{
 		// reset animations
-		anim.SetFloat("Death", 0);
+		anim.SetFloat("Death", 0f);
 		anim.SetFloat("Forward", 1f);
 
 		// reset other components
 		isDead = false;
 		cc.enabled = true;
-		this.GetComponent<ArcherShooting>().enabled = true;
-		//this.GetComponent<CustomGravity>().enabled = true;
 	}
 }

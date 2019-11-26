@@ -21,7 +21,7 @@ public class MatchOverMenu : MonoBehaviour
 	public void MatchOver()
 	{
 		matchOverUI.SetActive(true);
-		Time.timeScale = 0f;
+		//Time.timeScale = 0f;
 	}
 
 	public void OnNavigate(InputAction.CallbackContext ctx)

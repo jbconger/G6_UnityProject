@@ -33,6 +33,17 @@ public class ArcherShooting : MonoBehaviour
     void Start()
     {
 		anim = GetComponent<Animator>();
+
+		foreach (var childAnimator in GetComponentsInChildren<Animator>())
+		{
+			if (childAnimator != anim)
+			{
+				anim.avatar = childAnimator.avatar;
+				Destroy(childAnimator);
+				break;
+			}
+		}
+
 		chargeSpeed = (maxArrowSpeed - minArrowSpeed) / maxChargeTime;
 		arrowDrawn = false;
 	}

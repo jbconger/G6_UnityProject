@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 	public PlayerManager[] m_Players;
 
 	// PRIVATE FIELDS
-	private int m_RoundNumber;
+	private int m_RoundNumber = 0;
 	private WaitForSeconds m_StartWait;
 	private WaitForSeconds m_EndWait;
 	private PlayerManager m_RoundWinner;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator GameLoop()
 	{
-		//yield return StartCoroutine(RoundStart());
+		yield return StartCoroutine(RoundStart());
 
 		yield return StartCoroutine(RoundPlay());
 
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
 
 		if (m_GameWinner != null)
 		{
+			DisablePlayerControls();
 			matchOverUI.MatchOver();
 		}
 		else
@@ -82,9 +83,14 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator RoundStart()
 	{
-		ResetPlayers();
-		DisablePlayerControls();
+		// Destroy any lingering arrows
+		GameObject[] arrowArray = GameObject.FindGameObjectsWithTag("Arrow");
+		foreach (GameObject arr in arrowArray)
+			Destroy(arr);
 
+		// start new round
+		ResetPlayers();
+		
 		m_DynamicCamera.ResetPosition();
 
 		m_RoundNumber++;
@@ -95,7 +101,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator RoundPlay()
 	{
-		EnablePlayerControls();
+		//EnablePlayerControls();
 
 		m_MessageText.text = "";
 
@@ -107,7 +113,7 @@ public class GameManager : MonoBehaviour
 
 	private IEnumerator RoundEnd()
 	{
-		DisablePlayerControls();
+		//DisablePlayerControls();
 
 		m_RoundWinner = null;
 
@@ -130,7 +136,7 @@ public class GameManager : MonoBehaviour
 
 		for (int i = 0; i < m_Players.Length; i++)
 		{
-			if (m_Players[i].m_Instance.activeSelf)
+			if (!m_Players[i].m_Movement.isDead)
 				playersRemaining++;
 		}
 
@@ -141,7 +147,7 @@ public class GameManager : MonoBehaviour
 	{
 		for (int i = 0; i < m_Players.Length; i++)
 		{
-			if (m_Players[i].m_Instance.activeSelf)
+			if (!m_Players[i].m_Movement.isDead)
 				return m_Players[i];
 		}
 
