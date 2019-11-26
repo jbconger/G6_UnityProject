@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 		}
 		else
 		{
+			ResetPlayers();
 			StartCoroutine(GameLoop());
 		}
 	}
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 			Destroy(arr);
 
 		// start new round
-		ResetPlayers();
+		//ResetPlayers();
 		
 		m_DynamicCamera.ResetPosition();
 
