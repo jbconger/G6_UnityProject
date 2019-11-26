@@ -11,15 +11,21 @@ public class MultiTargetCamera : MonoBehaviour
 
 	public float minZoom = 20f;
 	public float maxZoom = 10f;
-	public float zoomLimiter = 2f;
+	//public float zoomLimiter = 2f;
 
 	private Vector3 velocity;
 	private Camera cam;
 
-    // Start is called before the first frame update
-    void Start()
+	private float size;
+	private Vector3 startLocation;
+
+	// Start is called before the first frame update
+	void Start()
     {
 		cam = GetComponent<Camera>();
+
+		size = cam.orthographicSize;
+		startLocation = cam.transform.position;
     }
 
     // Update is called once per frame
@@ -65,5 +71,11 @@ public class MultiTargetCamera : MonoBehaviour
 		}
 
 		return bounds;
+	}
+
+	public void ResetPosition()
+	{
+		cam.orthographicSize = size;
+		cam.transform.position = startLocation;
 	}
 }

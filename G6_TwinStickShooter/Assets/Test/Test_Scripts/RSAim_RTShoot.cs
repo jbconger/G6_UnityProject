@@ -75,7 +75,7 @@ public class RSAim_RTShoot : MonoBehaviour
 
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
-		arw.GetComponent<Arrow>().ID = this.gameObject.name;
+		arw.GetComponent<Arrow>().ID = this.GetInstanceID();
 		
 		if (Time.time - chargeTime <= 0.2)
 		{

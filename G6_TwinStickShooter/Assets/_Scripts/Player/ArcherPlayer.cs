@@ -78,7 +78,7 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		GameObject coll = collision.gameObject;
 
-		if (coll.CompareTag("Arrow") && this.name != coll.GetComponent<Arrow>().ID)
+		if (coll.CompareTag("Arrow") && this.GetInstanceID() != coll.GetComponent<Arrow>().ID)
 		{
 			// play death animation
 			anim.SetFloat("Death", 1f);
@@ -207,7 +207,7 @@ public class ArcherPlayer : MonoBehaviour
 	{
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
-		arw.GetComponent<Arrow>().ID = this.gameObject.name;
+		arw.GetComponent<Arrow>().ID = this.GetInstanceID();
 		rb.AddForce(firePoint.forward * baseArrowSpeed * chargeTime, ForceMode.Impulse);
 		Destroy(arw, 5f);
 		

@@ -4,27 +4,24 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-	PlayerControls controls;
+	GameControls controls;
 
 	public GameObject pauseMenuUI;
-
     public static bool isPaused;
 
 	private void Awake()
 	{
-		controls = new PlayerControls();
-
+		controls = new GameControls();
 		controls.UI.Pause.started += OnPause;
 	}
 
-	// Start is called before the first frame update
 	void Start()
     {
         pauseMenuUI.SetActive(false);
         isPaused = false;
     }
 
-	// input handler for pausing the game
+	// pause functions
 	public void OnPause(InputAction.CallbackContext ctx)
 	{
 		if (isPaused)
@@ -32,13 +29,6 @@ public class PauseMenu : MonoBehaviour
 		else
 			Pause();
 	}
-
-    public void PlayGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        // TODO: This will just load the next scene in the scene manager. To start I will set to the level, 
-        // but the next scene will be the Ready Menu.
-    }
 
 	public void Pause()
     {
@@ -53,26 +43,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
     }
-
-    public void QuitToTitle()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    public void QuitGame()
-    {
-		Debug.Log("Quit");
-        Application.Quit();
-    }
-
-    public void GoToLevelSelect()
-    {
-		SceneManager.LoadScene("ReadyLevelSelect");
-        // TODO: Will need to find the logic to restart a match rather than restart the entire application.
-        // Application.LoadLevel(0); <--This looks correct, but just needs the right scene number, however will it still have the players loaded in?
-    }
-
-
 
 	// other items
 	private void OnEnable() { controls.Enable(); }
