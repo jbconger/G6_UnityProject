@@ -191,7 +191,8 @@ public class ArcherMovement : MonoBehaviour
 	{
 		// reset animations
 		anim.SetFloat("Death", 0f);
-		anim.SetFloat("Forward", 1f);
+		anim.SetFloat("Forward", 0f);
+        anim.SetFloat("Turn", 0f);
 
 		// reset other components
 		isDead = false;
