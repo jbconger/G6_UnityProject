@@ -14,7 +14,7 @@ public class MultiTargetCamera : MonoBehaviour
 	//public float zoomLimiter = 2f;
 
 	private Vector3 velocity;
-	private Camera cam;
+	public Camera cam;
 
 	private float size;
 	private Vector3 startLocation;
@@ -22,8 +22,6 @@ public class MultiTargetCamera : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		cam = GetComponent<Camera>();
-
 		size = cam.orthographicSize;
 		startLocation = cam.transform.position;
     }
@@ -59,6 +57,10 @@ public class MultiTargetCamera : MonoBehaviour
 		else
 			newZoom = Mathf.Lerp(maxZoom, bounds, smoothTime);
 		//float newZoom = Mathf.Lerp(maxZoom, bounds, smoothTime);
+
+		//if (newZoom <= 0.1)
+		//	return;
+
 		cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, newZoom, Time.deltaTime);
 	}
 

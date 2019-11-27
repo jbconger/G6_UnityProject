@@ -49,7 +49,7 @@ public class ArcherMovement : MonoBehaviour
 			}
 		}
 
-		animTransform = Camera.main.transform;
+		//animTransform = Camera.main.transform;
 	}
 
 	// UPDATE FUNCTIONS
