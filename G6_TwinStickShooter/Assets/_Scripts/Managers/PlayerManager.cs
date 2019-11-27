@@ -26,6 +26,7 @@ public class PlayerManager
 		// set player numbers
 		m_Movement.playerNumber = m_PlayerNumber;
 		m_Shooting.playerNumber = m_PlayerNumber;
+		m_Shooting.playerColor = m_PlayerColor;
 
 		// setup player ui label
 		m_ColoredPlayerText = "<color=#" + ColorUtility.ToHtmlStringRGB(m_PlayerColor) + ">PLAYER " + m_PlayerNumber + "</color>";

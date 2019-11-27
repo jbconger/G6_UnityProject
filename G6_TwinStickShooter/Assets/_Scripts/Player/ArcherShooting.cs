@@ -12,6 +12,7 @@ public class ArcherShooting : MonoBehaviour
 
 	// PUBLIC FIELDS
 	[HideInInspector] public int playerNumber = 1;
+	[HideInInspector] public Color playerColor;
 	public float minArrowSpeed = 10f;
 	public float maxArrowSpeed = 40f;
 	public float maxChargeTime = 2f;
@@ -124,6 +125,7 @@ public class ArcherShooting : MonoBehaviour
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
 		arw.GetComponent<Arrow>().ID = playerNumber;
+		arw.GetComponentInChildren<MeshRenderer>().material.color = playerColor;
 		rb.AddForce(firePoint.forward * currentCharge, ForceMode.Impulse);
 
 		currentCharge = minArrowSpeed;
