@@ -636,6 +636,7 @@ MonoBehaviour:
   deathSound: {fileID: 6194808514057540424}
   playerNumber: 1
   moveSpeed: 6
+  isDead: 0
 --- !u!82 &1832807286576527494
 AudioSource:
   m_ObjectHideFlags: 0
@@ -849,7 +850,7 @@ MonoBehaviour:
   minArrowSpeed: 10
   maxArrowSpeed: 40
   maxChargeTime: 0.75
-  timeBetweenShots: 0
+  timeBetweenShots: 1
 --- !u!82 &4764955839365490031
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1063,11 +1064,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431878407995382142}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
-        type: 3}
-      propertyPath: m_Name
-      value: FullCharacterTPose
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68143b255aa240c4fa9b00487540e0c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1137,6 +1133,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
+        type: 3}
+      propertyPath: m_Name
+      value: FullCharacterTPose
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68143b255aa240c4fa9b00487540e0c3, type: 3}
