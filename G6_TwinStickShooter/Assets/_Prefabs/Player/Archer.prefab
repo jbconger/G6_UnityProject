@@ -647,7 +647,8 @@ AudioSource:
   m_GameObject: {fileID: 8388803304716511556}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2661202767744421317, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 1ce3a3dafa82a344c8c1075125b2000a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -862,16 +863,17 @@ AudioSource:
   m_GameObject: {fileID: 8388803304716511556}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2661202767744421317, guid: 8f8bb6b2ac9f6d641a30e89eb38c85f5,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: be57348f3db886b4aa3d6c1c3999b1ba, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -1066,11 +1068,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431878407995382142}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 6e5c2870465be2b489b01f9b21f88386,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalCharT_Pose12
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6e5c2870465be2b489b01f9b21f88386,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1141,6 +1138,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 6e5c2870465be2b489b01f9b21f88386,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalCharT_Pose12
+      objectReference: {fileID: 0}
     - target: {fileID: -2050006980461810219, guid: 6e5c2870465be2b489b01f9b21f88386,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1206,16 +1208,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431878407995382142}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
-        type: 3}
-      propertyPath: m_Name
-      value: FullCharacterTPose
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68143b255aa240c4fa9b00487540e0c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1285,6 +1277,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
+        type: 3}
+      propertyPath: m_Name
+      value: FullCharacterTPose
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68143b255aa240c4fa9b00487540e0c3, type: 3}
