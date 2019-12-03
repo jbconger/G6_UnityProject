@@ -53,14 +53,14 @@ MonoBehaviour:
   m_PlayerPrefab: {fileID: 8388803304716511556, guid: 1dcb57618890a2f40abe75b9aad6c4df,
     type: 3}
   m_Players:
-  - m_PlayerColor: {r: 1, g: 0, b: 0, a: 1}
+  - m_PlayerColor: {r: 1, g: 0, b: 0.038354874, a: 1}
     m_SpawnPoint: {fileID: 0}
     m_PlayerNumber: 0
     m_ColoredPlayerText: 
     m_Instance: {fileID: 0}
     m_Wins: 0
     m_Movement: {fileID: 0}
-  - m_PlayerColor: {r: 0, g: 0.122285366, b: 1, a: 1}
+  - m_PlayerColor: {r: 0.12941177, g: 1, b: 0, a: 1}
     m_SpawnPoint: {fileID: 0}
     m_PlayerNumber: 0
     m_ColoredPlayerText: 
@@ -81,5 +81,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   matchOverUI: {fileID: 0}
   playAgain: {fileID: 0}
-  levelSelect: {fileID: 0}
-  quitToTitle: {fileID: 0}
