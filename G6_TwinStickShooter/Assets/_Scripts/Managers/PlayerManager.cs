@@ -39,8 +39,6 @@ public class PlayerManager
 	public void DisablePlayer()
 	{
 		m_Instance.GetComponent<PlayerInput>().enabled = false;
-		//m_Movement.enabled = false;
-		//m_Shooting.enabled = false;
 	}
 
 	// enables player movement and shooting
@@ -58,8 +56,5 @@ public class PlayerManager
 
 		m_Instance.transform.position = m_SpawnPoint.position;
 		m_Instance.transform.rotation = m_SpawnPoint.rotation;
-
-		//m_Instance.SetActive(false);
-		//m_Instance.SetActive(true);
 	}
 }
