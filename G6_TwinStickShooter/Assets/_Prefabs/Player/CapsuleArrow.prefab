@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2224945935639994219}
   - component: {fileID: 2224945935639994220}
-  - component: {fileID: 2224945935639994222}
   - component: {fileID: 2224945935639994223}
+  - component: {fileID: 471645661000392211}
   - component: {fileID: 2224945935639994192}
   - component: {fileID: -668481361263139796}
   m_Layer: 10
-  m_Name: Arrow
+  m_Name: CapsuleArrow
   m_TagString: Arrow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,19 +45,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224945935639994193}
   m_Mesh: {fileID: 0}
---- !u!65 &2224945935639994222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2224945935639994193}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.3, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &2224945935639994223
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -74,6 +61,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
+--- !u!136 &471645661000392211
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2224945935639994193}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.17
+  m_Height: 0.86085147
+  m_Direction: 2
+  m_Center: {x: 0, y: -0.004523039, z: 0.063736945}
 --- !u!114 &2224945935639994192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +88,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2224945935639994223}
-  cc: {fileID: 2224945935639994222}
+  cc: {fileID: 471645661000392211}
 --- !u!82 &-668481361263139796
 AudioSource:
   m_ObjectHideFlags: 0
@@ -408,19 +409,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 5.7
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
-    - target: {fileID: 5399078703044046388, guid: a0a8df635a1a6de4ca51bb1323e38348,
-        type: 3}
-      propertyPath: m_Name
-      value: ArrowMesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 5399078703044046388, guid: a0a8df635a1a6de4ca51bb1323e38348,
-        type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-=======
->>>>>>> Stashed changes
     - target: {fileID: 5662270803421019729, guid: a0a8df635a1a6de4ca51bb1323e38348,
         type: 3}
       propertyPath: m_Mesh

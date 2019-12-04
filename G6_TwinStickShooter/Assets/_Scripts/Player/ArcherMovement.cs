@@ -21,7 +21,7 @@ public class ArcherMovement : MonoBehaviour
 
 	// ANIMATOR FIELDS
 	private Animator anim;
-	private Transform animTransform;
+	//private Transform animTransform;
 	private Vector3 animForward;
 	private Vector3 animMove;
 	private Vector3 animMoveInput;
@@ -86,12 +86,12 @@ public class ArcherMovement : MonoBehaviour
 		float horizontal = i_move.x * animMultiplier;
 		float vertical = i_move.y * animMultiplier;
 
-		if (animTransform != null)
-		{
-			animForward = Vector3.Scale(animTransform.up, new Vector3(1, 0, 1)).normalized;
-			animMove = vertical * animForward + horizontal * animTransform.right;
-		}
-		else
+		//if (animTransform != null)
+		//{
+		//	animForward = Vector3.Scale(animTransform.up, new Vector3(1, 0, 1)).normalized;
+		//	animMove = vertical * animForward + horizontal * animTransform.right;
+		//}
+		//else
 		{
 			animMove = vertical * Vector3.forward + horizontal * Vector3.right;
 		}
@@ -123,7 +123,7 @@ public class ArcherMovement : MonoBehaviour
 	private void Looking()
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
-		if (!lookVector.Equals(Vector3.zero))
+		if (lookVector.sqrMagnitude > 0.85f)
 			transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
 	}
 

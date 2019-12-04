@@ -844,7 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75b3dd5b022585846ac33628f524b0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrow: {fileID: 2224945935639994193, guid: 1ebf5921adfdd114e8bcf917af0cdb38, type: 3}
+  arrow: {fileID: 2224945935639994193, guid: 52a9c7eb52285de499b2c19a05b37700, type: 3}
   firePoint: {fileID: 699853118128147818}
   drawArrowSound: {fileID: 4764955839365490031}
   chargeIndicator: {fileID: 8838420667121259810}
@@ -1068,6 +1068,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431878407995382142}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 6e5c2870465be2b489b01f9b21f88386,
+        type: 3}
+      propertyPath: m_Name
+      value: FinalCharT_Pose12
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 6e5c2870465be2b489b01f9b21f88386,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1138,11 +1143,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.45
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 6e5c2870465be2b489b01f9b21f88386,
-        type: 3}
-      propertyPath: m_Name
-      value: FinalCharT_Pose12
-      objectReference: {fileID: 0}
     - target: {fileID: -2050006980461810219, guid: 6e5c2870465be2b489b01f9b21f88386,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1208,6 +1208,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1431878407995382142}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
+        type: 3}
+      propertyPath: m_Name
+      value: FullCharacterTPose
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 68143b255aa240c4fa9b00487540e0c3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1277,16 +1287,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
-        type: 3}
-      propertyPath: m_Name
-      value: FullCharacterTPose
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 68143b255aa240c4fa9b00487540e0c3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68143b255aa240c4fa9b00487540e0c3, type: 3}

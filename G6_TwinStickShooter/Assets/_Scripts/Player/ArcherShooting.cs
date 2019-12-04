@@ -20,7 +20,6 @@ public class ArcherShooting : MonoBehaviour
 
 	// PRIVATE FIELDS
 	private float chargeSpeed;
-	private float chargeTime;
 	private float lastShotTime;
 	private float currentCharge;
 
@@ -96,18 +95,20 @@ public class ArcherShooting : MonoBehaviour
 				break;
 
 			case InputActionPhase.Started:
-				chargeTime = Time.time;
-				arrowDrawn = true;
+				if (Time.time > lastShotTime + timeBetweenShots)
+				{
+					arrowDrawn = true;
+					// play sound
+					drawArrowSound.Play();
 
-				// play sound
-				drawArrowSound.Play();
+					// animation
+					anim.SetFloat("Aim", 1);
+				}
 
-				// animation
-				anim.SetFloat("Aim", 1);
 				break;
 
 			case InputActionPhase.Canceled:
-				if (Time.time > lastShotTime + timeBetweenShots)
+				if (Time.time > lastShotTime + timeBetweenShots && arrowDrawn)
 					Firing();
 				
 				arrowDrawn = false;
@@ -125,7 +126,10 @@ public class ArcherShooting : MonoBehaviour
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
 		arw.GetComponent<Arrow>().ID = playerNumber;
+
 		arw.GetComponentInChildren<MeshRenderer>().material.color = playerColor;
+		arw.GetComponentInChildren<TrailRenderer>().material.color = playerColor;
+
 		rb.AddForce(firePoint.forward * currentCharge, ForceMode.Impulse);
 
 		currentCharge = minArrowSpeed;
@@ -137,6 +141,7 @@ public class ArcherShooting : MonoBehaviour
 
 	public void RespawnReset()
 	{
+		currentCharge = minArrowSpeed;
 		isDead = false;
 	}
 }

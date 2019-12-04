@@ -14,7 +14,7 @@ public class DynamicCamera : MonoBehaviour
 
     void Awake()
     {
-		m_Camera = this.GetComponent<Camera>();
+		m_Camera = this.GetComponentInChildren<Camera>();
     }
 
     void FixedUpdate()
@@ -66,7 +66,7 @@ public class DynamicCamera : MonoBehaviour
 
 		for (int i = 0; i < m_Targets.Length; i++)
 		{
-			if (!m_Targets[i].GetComponent<ArcherMovement>().isDead)
+			if (m_Targets[i].GetComponent<ArcherMovement>().isDead)
 			{
 				continue;
 			}

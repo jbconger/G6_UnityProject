@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +10,7 @@ public class GameManager : MonoBehaviour
 	public float m_EndDelay = 3f;
 
 	// REFERENCES
-	public MultiTargetCamera m_DynamicCamera;
+	public DynamicCamera m_DynamicCamera;
 	public Text m_MessageText;
 	public MatchOverMenu matchOverUI;
 	public GameObject m_PlayerPrefab;
@@ -51,14 +50,14 @@ public class GameManager : MonoBehaviour
 
 	private void SetupCamera()
 	{
-		List<Transform> targets = new List<Transform>();
+		Transform[] targets = new Transform[m_Players.Length];
 
 		for (int i = 0; i < m_Players.Length; i++)
 		{
-			targets.Add(m_Players[i].m_Instance.transform);
+			targets[i] = m_Players[i].m_Instance.transform;
 		}
 
-		m_DynamicCamera.targets = targets;
+		m_DynamicCamera.m_Targets = targets;
 	}
 
 	private IEnumerator GameLoop()
@@ -91,7 +90,7 @@ public class GameManager : MonoBehaviour
 		// start new round
 		//ResetPlayers();
 		
-		m_DynamicCamera.ResetPosition();
+		m_DynamicCamera.SetStartPositionAndSize();
 
 		m_RoundNumber++;
 		m_MessageText.text = "ROUND " + m_RoundNumber;
