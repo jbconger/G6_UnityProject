@@ -3,8 +3,9 @@
 public class Arrow : MonoBehaviour
 {
 	public Rigidbody rb;
-	public BoxCollider cc;
+	public CapsuleCollider cc;
 
+	private float despawnTime = 1f;
 	private bool deadArrow = false;
 
 	// property for arrow ID
@@ -24,14 +25,26 @@ public class Arrow : MonoBehaviour
 	private void OnCollisionEnter(Collision collision)
 	{
 		GameObject coll = collision.gameObject;
-	
-		if (coll.tag != "Player")
+
+		if (coll.CompareTag("Player") && ID != coll.GetComponent<ArcherMovement>().playerNumber)
 		{
 			cc.enabled = false;
 			rb.velocity = Vector3.zero;
 			//rb.useGravity = true;
 			deadArrow = true;
-			Destroy(this.gameObject, 2f);
+			Destroy(this.gameObject, despawnTime);
+		}
+		else if (coll.CompareTag("Terrain"))
+		{
+			rb.velocity = Vector3.zero;
+			deadArrow = true;
+			Destroy(this.gameObject, despawnTime);
+		}
+		else if (coll.CompareTag("Arrow"))
+		{
+			rb.velocity = Vector3.zero;
+			rb.useGravity = true;
+			deadArrow = true;
 		}
 	}
 

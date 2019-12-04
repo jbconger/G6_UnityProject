@@ -123,7 +123,7 @@ public class ArcherMovement : MonoBehaviour
 	private void Looking()
 	{
 		Vector3 lookVector = (Vector3.right * i_look.x) + (Vector3.forward * i_look.y);
-		if (!lookVector.Equals(Vector3.zero))
+		if (lookVector.sqrMagnitude > 0.85f)
 			transform.rotation = Quaternion.LookRotation(-lookVector, Vector3.up);
 	}
 

@@ -106,10 +106,26 @@ public class ArcherShooting : MonoBehaviour
 		GameObject arw = Instantiate(arrow, firePoint.position, firePoint.rotation);
 		Rigidbody rb = arw.GetComponent<Rigidbody>();
 		arw.GetComponent<Arrow>().ID = playerNumber;
+<<<<<<< Updated upstream
+=======
+		arw.GetComponentInChildren<MeshRenderer>().material.color = playerColor;
+		arw.GetComponentInChildren<TrailRenderer>().material.color = playerColor;
+>>>>>>> Stashed changes
 		rb.AddForce(firePoint.forward * currentCharge, ForceMode.Impulse);
 
 		currentCharge = minArrowSpeed;
 
 		Destroy(arw, 5f);
 	}
+<<<<<<< Updated upstream
+=======
+
+	// OTHER FUNCTIONS
+
+	public void RespawnReset()
+	{
+		currentCharge = minArrowSpeed;
+		isDead = false;
+	}
+>>>>>>> Stashed changes
 }
