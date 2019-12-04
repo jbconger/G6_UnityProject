@@ -12,6 +12,7 @@ public class Menu : MonoBehaviour
 	public void Wind1() { SceneManager.LoadScene("Wind1"); }
 	public void Wind2() { SceneManager.LoadScene("Wind2"); }
 	public void Wind3() { SceneManager.LoadScene("Wind3"); }
+	public void Wind4() { SceneManager.LoadScene("Wind4"); }
 
 	// in-game menus
 	public void PlayAgain() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
