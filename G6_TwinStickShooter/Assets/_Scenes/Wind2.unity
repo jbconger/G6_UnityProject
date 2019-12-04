@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -767,6 +772,54 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 852bc7ca61677e943a6e6c69e158269c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e2c84485dc19f494aa1c04364253cf52, type: 3}
+--- !u!1 &167560298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167560299}
+  - component: {fileID: 167560300}
+  m_Layer: 0
+  m_Name: CameraRig
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &167560299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167560298}
+  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 702982407}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
+--- !u!114 &167560300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167560298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2326c3d684ad5f44fa8c6e3dd36ac421, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SmoothTime: 0.2
+  m_ScreenEdgeBuffer: 4
+  m_MinSize: 10
+  m_Targets: []
 --- !u!1001 &185992018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1063,6 +1116,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -1663,6 +1721,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: InvWall
       objectReference: {fileID: 0}
+    - target: {fileID: -3164220449637510858, guid: f1434a95402ecb04e92451c0c7a00ed0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -3164220449637510858, guid: f1434a95402ecb04e92451c0c7a00ed0,
+        type: 3}
+      propertyPath: m_TagString
+      value: InvWall
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f1434a95402ecb04e92451c0c7a00ed0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1722,16 +1790,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: -3164220449637510858, guid: f1434a95402ecb04e92451c0c7a00ed0,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -3164220449637510858, guid: f1434a95402ecb04e92451c0c7a00ed0,
-        type: 3}
-      propertyPath: m_TagString
-      value: InvWall
       objectReference: {fileID: 0}
     - target: {fileID: 2111831059043373818, guid: f1434a95402ecb04e92451c0c7a00ed0,
         type: 3}
@@ -2066,7 +2124,6 @@ GameObject:
   - component: {fileID: 702982407}
   - component: {fileID: 702982406}
   - component: {fileID: 702982405}
-  - component: {fileID: 702982409}
   - component: {fileID: 702982408}
   - component: {fileID: 702982410}
   m_Layer: 0
@@ -2093,8 +2150,8 @@ Camera:
   m_GameObject: {fileID: 702982404}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2134,11 +2191,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702982404}
-  m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: 0, y: 24, z: -12}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.73285675, z: -26.822807}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 167560299}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
 --- !u!114 &702982408
@@ -2161,29 +2218,6 @@ MonoBehaviour:
   minZoom: 20
   maxZoom: 10
   cam: {fileID: 702982406}
---- !u!114 &702982409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702982404}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ea38ee861f3b94e9c6e592e72b23d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LevelFocus: {fileID: 0}
-  Players:
-  - {fileID: 0}
-  - {fileID: 0}
-  DepthUpdateSpeed: 5
-  AngleUpdateSpeed: 7
-  PositionUpdateSpeed: 5
-  DepthMax: -15.87
-  DepthMin: -15.87
-  AngleMax: 61.27
-  AngleMin: 61.27
 --- !u!82 &702982410
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2465,6 +2499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -3150,6 +3189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -4041,6 +4085,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4155,6 +4204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -4398,6 +4452,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4627,6 +4686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -4889,6 +4953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -5588,7 +5657,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_DynamicCamera
       value: 
-      objectReference: {fileID: 702982408}
+      objectReference: {fileID: 167560300}
     - target: {fileID: 5220675838522712023, guid: 828cb95a2ea674c44a10d7374f0b9071,
         type: 3}
       propertyPath: m_MessageText
@@ -5858,11 +5927,11 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091174664}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 62262bd42aefaf44caf8e81ab2e805c6, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1

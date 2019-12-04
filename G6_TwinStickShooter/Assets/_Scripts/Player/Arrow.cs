@@ -45,7 +45,7 @@ public class Arrow : MonoBehaviour
 		{
 			cc.enabled = false;
 			rb.velocity = Vector3.zero;
-			rb.useGravity = true;
+			//rb.useGravity = true;
 			deadArrow = true;
 		}
 	}
