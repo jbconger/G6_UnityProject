@@ -316,6 +316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2295,6 +2300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3104,6 +3114,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3420,6 +3435,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -5791,6 +5811,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6626,6 +6651,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
@@ -8155,6 +8185,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_Prefab (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
+      objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8610,6 +8645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_Prefab (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4918596410029961399, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
+        type: 3}
+      propertyPath: m_TagString
+      value: Terrain
       objectReference: {fileID: 0}
     - target: {fileID: 8221607787001414308, guid: bb61d3b2a7d8ee04d82bc06a1e8526ce,
         type: 3}
