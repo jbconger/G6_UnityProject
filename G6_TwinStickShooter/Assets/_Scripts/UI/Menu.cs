@@ -17,5 +17,9 @@ public class Menu : MonoBehaviour
 	// in-game menus
 	public void PlayAgain() { SceneManager.LoadScene(SceneManager.GetActiveScene().name); }
 	public void QuitToTitle() { SceneManager.LoadScene("TitleScreen"); }
-	public void GoToLevelSelect() { SceneManager.LoadScene("ReadyLevelSelect"); }
+	public void GoToLevelSelect() 
+	{
+		Time.timeScale = 1f;
+		SceneManager.LoadScene("ReadyLevelSelect"); 
+	}
 }
