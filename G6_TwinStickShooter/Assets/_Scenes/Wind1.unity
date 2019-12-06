@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &74281346
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &119101234
@@ -1857,7 +1857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SmoothTime: 0.2
   m_ScreenEdgeBuffer: 4
-  m_MinSize: 8
+  m_MinSize: 14.5
   m_Targets: []
 --- !u!4 &420119613
 Transform:
@@ -4897,7 +4897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &939440507
@@ -5570,7 +5570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1062066478
@@ -6049,7 +6049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1231810574
@@ -6473,7 +6473,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1353553241
@@ -6582,7 +6582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1362087992
@@ -6919,7 +6919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1445780210
@@ -7444,7 +7444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1551191336
@@ -7740,7 +7740,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1624926772
@@ -8026,7 +8026,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1668939000
@@ -8319,7 +8319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca1b1a56526d7af4f87e6b11de526883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windStrength: 200
+  windStrength: 300
   affectsArrows: 1
   affectsPlayers: 0
 --- !u!65 &1707322271

@@ -1123,7 +1123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SmoothTime: 0.2
   m_ScreenEdgeBuffer: 4
-  m_MinSize: 20
+  m_MinSize: 22
   m_Targets: []
 --- !u!1001 &185992018
 PrefabInstance:
